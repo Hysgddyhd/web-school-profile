@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>week3 extra_work</title>
+</head>
+<body style="text-align:center;">
+	
+	<p style="text-align:left;"><--
+		<br><a href="index.html" target="_parent">return</a></p>
+	<hr>
+	<h1>BioData Form</h1>
+	<form action="http://lrgs.ftsm.ukm.my/users/a123456/week3lab/validate_biodata.php" method="post" enctype="multipart/form-data">
+		<table bgcolor="LightGray" border="1" cellpadding="10" style="font-family: sans-serif;">
+			<!-- This a simple input form  -->
+			<tr>
+				<td>
+					Name: 
+				</td>
+				<td>
+					<input   type="text" name="name"  maxlength="10" placeholder="type your name" pattern="[A-Za-z]{1,}" oninvalid="setCustomValidity('Please enter on alphabets only. ')" required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					age: 
+				</td>
+				<td>
+					<input type="number.html" name="age" min="1" max="60" required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					gender: 
+				</td>
+				<td>
+					<!--add label to radio button, with id  -->
+					<input type="radio"
+					name="sex" value="male" id="male" checked  >
+					<label for="male">Male</label>
+					<input type="radio" name="sex" value="female" id="female">
+					<label for="female">Female</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					address: 
+				</td>
+				<td>
+					<textarea name="address" cols="40" rows="3" maxlength="100" placeholder="type your address" required></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Email:  
+				</td>
+				<td>
+					<input type="text" name="email" maxlength="30" placeholder="type your UKM email" oninvalid="setCustomValidity('Please enter email with ukm.')" required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Birth Date:  
+				</td>
+				<td>
+					<input type="date" name="date" required
+					>&ensp;&ensp;&ensp;
+					<input type="time" name="time">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Height:   
+				</td>
+				<td>
+					<input type="range" name="height" id="heightId" min = "100" max = "200" value = "160" step="400" readonly="true">160 cm
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Phone Number:   
+				</td>
+				<td>
+					<input type="tel" name="phone" pattern="[0+\+]{1,2}60[0-9]{10}" placeholder="+601234567890" 
+					 required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Favorite Color:    
+				</td>
+				<td>
+					<input type="color" name="color" value="#A0D36E" required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					FB: 
+				</td>
+				<td>
+					<input type="url" name="fbtwig" required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					my face photo:    
+				</td>
+				<td>
+					<input type="file" name="photo" accept=".jpg,.png,.webp,.gif" required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					My University: 
+				</td>
+				<td>
+					<select name="university" required>
+						<option value="UKM" selected>Universiti Kebangsaan Malaysia</option>
+						<option value="UM">Universiti Malaya</option>
+						<option value="UPM">Universiti Putra Malaysia</option>
+						<option value="UTAR">Universiti Tunku Abdul Rahman</option>
+				</td>
+			</tr>
+		</table>
+		<hr>
+		<input type="hidden" name="matricnum" value="a197547">
+		<button type="submit" name="biodata_form" value="Submit My Biodata" style="color:#296DD0;background-color: #FFFFC0;font-size: 18px;font-family: Times New Roman;">Submit</button>
+			&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+		<input type="reset" value="Reset all" style="color:#CC0000;background-color: #FFFFC0;font-size: 18px;font-family: Times New Roman;">
+		<br>
+	</form>
+</body>
+</html>

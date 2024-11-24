@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>A simple Form</title>
+</head>
+<body>
+	<form action="get.php" method="get">
+		<table border="1" width="60%">
+			<tr>
+				<td>
+					What is your favorite color?<br>
+				</td>
+				<td>
+					<input	type="color" name="color">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					When are you going to negera?
+				</td>
+				<td>
+					<input type="date" name="date" >
+				</td>
+			</tr>
+				<tr>
+				<td>
+					Favorite number?
+				</td>
+				<td>
+					<input type="range" id="fav_num" name="number" min="0" max="100" value="50" oninput="outputId.value = fav_num.value"><output id="outputId">50</output>
+				</td>
+			</tr>
+		</table>
+		<input type="submit" name="simple_form" value="submit" >
+		<input type="reset" value="reset form">
+	</form>
+
+</body>
+</html>

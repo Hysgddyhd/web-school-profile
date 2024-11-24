@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>week3 login</title>
+</head>
+<body>
+	<p style="text-align:left;"><--
+		<br><a href="index.html" target="_parent">return</a></p>
+	<hr>
+	<form width="100%" action="http://lrgs.ftsm.ukm.my/users/a123456/week3lab/process_login.php" method="post">
+		<b><h2>Login Form</h2></b>
+		<table border="1" cellpadding="5" color = "lightgray" width="40%">
+			<tr>
+				<td>
+					<i>Username:</i>
+				</td>
+				<td>
+					<input type="text" name="username" placeholder="type your name" maxlength="10" required>
+				</td>
+			</tr>
+			<tr>
+				<td><i>Password</i></td>
+				<td><input type="password" name="password" placeholder="type your name"  required></td>
+			</tr>
+		</table>
+		<input type="hidden" name="matricnum" value="a197547">
+		<input type="submit" name="login_form" value="submit">
+		<input type="reset" value="reset">
+	</form>
+</body>
+</html>

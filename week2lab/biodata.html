@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<h2>BioData Form</h2>
+	<form action="http://lrgs.ftsm.ukm.my/users/a123456/week3lab/validate_biodata.php" method="post" enctype="multipart/form-data">
+		<table bgcolor="LightGray" border="1" cellpadding="10" >
+			<!-- This a simple input form  -->
+			<tr>
+				<td>
+					Name: 
+				</td>
+				<td>
+					<input   type="text" name="name" maxlength="10" placeholder="type your name" required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					age: 
+				</td>
+				<td>
+					<input type="number.html" name="age" min="1" max="60" required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					gender: 
+				</td>
+				<td>
+					<input type="radio"
+					name="sex" value="male" checked>Male<input type="radio" name="sex" value="female" required>Female
+				</td>
+			</tr>
+			<tr>
+				<td>
+					address: 
+				</td>
+				<td>
+					<textarea name="address" cols="40" rows="3" maxlength="100" placeholder="type your address" required></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Email:  
+				</td>
+				<td>
+					<input type="text" name="email" maxlength="30" placeholder="type your email" required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Application Date:  
+				</td>
+				<td>
+					<input type="date" name="date" required
+					>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Height:   
+				</td>
+				<td>
+					<input type="range" name="height" id="heightId" min = "100" max = "200" value = "160" oninput="outputId.value = heightId.value"><output id="outputId">160</output>cm
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Phone Number:   
+				</td>
+				<td>
+					<input type="tel" name="phone" pattern="[0-9]{2}-[0-9]{7}" placeholder="12-3456789" 
+					 required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Favorite Color:    
+				</td>
+				<td>
+					<input type="color" name="color" required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					FB: 
+				</td>
+				<td>
+					<input type="url" name="fbtwig" required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					my face photo:    
+				</td>
+				<td>
+					<input type="file" name="photo"  required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					My University: 
+				</td>
+				<td>
+					<select name="university" required>
+						<option value="" selected>Select</option>
+						<option value="UKM">Universiti Kebangsaan Malaysia</option>
+						<option value="UM">Universiti Malaya</option>
+						<option value="UPM">Universiti Putra Malaysia</option>
+						<option value="UTAR">Universiti Tunku Abdul Rahman</option>
+				</td>
+			</tr>
+		</table>
+		<hr>
+		<input type="hidden" name="matricnum" value="a197547">
+		<input type="submit" name="biodata_form" value="Submit My Biodata">
+		<input type="reset" value="Reset all">
+		<br>
+		<button ><a href="menu.html" target="_parent">menu</a></button>
+	</form>
+</body>
+</html>
