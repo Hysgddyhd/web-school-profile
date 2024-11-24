@@ -17,7 +17,7 @@ application/logs/*
 !application/logs/.htaccess
 /vendor/
 
-dahboard/
+dashboard/
 webalizer/
 xampp/
 applications.html
