@@ -1,5 +1,6 @@
 <?php 
 session_start();
+//create a back to menu link
   echo '<p style="font-size:24dp;">    <-   <a href="index.php"> Main Menu</a></p>';
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
    // echo "from post<br>";
@@ -20,10 +21,10 @@ session_start();
      // $name = $_POST['name'];
       $postdate = date("Y-m-d",time());
       $posttime = date("H:i:s",time());
-      $comment = $_POST['comment'];
+      $comment = trim($_POST['comment']);
 
       //apply filter to name , email , comment
-      $name = filter_var($_POST['name'],FILTER_SANITIZE_STRING);
+      $name = filter_var($_POST['name'],FILTER_SANITIZE_STRING,FILTER_FLAG_STRIP_HIGH);
       if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL) === false){
         echo "Invaild email address<br><br>";
         echo '<a href="new_form.php" target="_self">retry</a>';
@@ -50,6 +51,8 @@ session_start();
        
      
       $stmt->execute();
+
+      $_SESSION['new_id'] = $conn->lastInsertId();
  
       echo "New records created successfully";
       echo "<br><br>";

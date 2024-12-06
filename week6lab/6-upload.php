@@ -18,6 +18,7 @@
 	if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		if (is_uploaded_file($_FILES['img']['tmp_name'])) {
    			echo "File ". $_FILES['img']['name'] ." uploaded successfully.\n";
+       // readfile($_FILES['img']['tmp_name']);
 		} else {
    			echo "Possible file upload attack: ";
    			echo "filename '". $_FILES['img']['tmp_name'] . "'.";
@@ -29,9 +30,9 @@
   $img_type = $_FILES['img']['type'];
   $img_ext = strtolower(end(explode('.',$_FILES['img']['name'])));
   //echo "<br>".$img_ext;
-  $target_dir = "/home/typer/Pictures/uploads/";
-  $target_img = $target_dir . basename($_FILES["img"]["name"]);
-  //echo $img_tmp." -> ".$target_img;
+  $target_dir = "upload";
+  $target_img = $target_dir."/" . basename($_FILES["img"]["name"]);
+  echo "<br>".$img_tmp." -> ".$target_img;
   
   $extensions= array("jpeg","jpg","png");
 	
