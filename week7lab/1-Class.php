@@ -6,7 +6,9 @@
 		var $category ;
 		public  $price =25;
 		var  $page ;
-		
+		function book{
+			
+		}
 		
 	}
 	$tale = new book();
