@@ -5,6 +5,9 @@
 </head>
  
 <body>
+   <p style="font-size:24dp;">
+    <-   <a href="index.php"> Main Menu</a>
+  </p>
  
 <form method="post" action="insert.php">
   Nama :

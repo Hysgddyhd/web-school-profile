@@ -49,6 +49,10 @@ $univ = array
 </style>
 </head>
 <body>
+   <p style="font-size:24dp;">
+    <-   <a href="../index.html"> Index</a>
+  </p>
+
 <h1>Biodata Form</h1>
 <hr>
 <form action="validate_biodata.php" method="post">
@@ -97,7 +101,7 @@ $univ = array
  
 <input type="hidden" name="matricnum" value="a123456">
 <input type="submit" name="biodata_form" value="Submit My Biodata" id="btn1">
-<input type="reset" id="btn2">
+<input type="reset" id="btn2" style="background-color: red;">
 </form>
  
 </body>
