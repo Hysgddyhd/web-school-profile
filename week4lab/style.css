@@ -1,0 +1,33 @@
+form #text {
+	background: lightgoldenrodyellow;
+	color: #000000;
+	padding: 12px;
+		font-size: 15px;
+
+	width: 180px;
+
+}
+
+td{
+	font: calibre;
+	font-size: 18px;
+	text-align: center;
+
+}
+/*only for table inside form*/
+form table{
+	background: lightgray;
+	font: arial;
+}
+
+button,input.button{
+	padding: 8px;
+	background: burlywood;
+	color: black;
+	font-size: 18px;
+	text-align: center;
+}
+input[type="reset"]{
+	color: red;
+	font-style: italic;
+}

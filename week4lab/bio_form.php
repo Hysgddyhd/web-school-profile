@@ -13,6 +13,7 @@ $univ = array(
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>week4 Bio from</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<p style="text-align:left;"><--
@@ -27,7 +28,7 @@ $univ = array(
 					Name: 
 				</td>
 				<td>
-					<input   type="text" name="name" maxlength="10" placeholder="type your name"  >
+					<input   id= "text" type="text" name="name" maxlength="10" placeholder="type your name"  >
 				</td>
 			</tr>
 			<tr>
@@ -35,7 +36,7 @@ $univ = array(
 					age: 
 				</td>
 				<td>
-					<input type="number.html" name="age" min="1" max="60"  >
+					<input id= "text"  type="number.html" name="age" min="1" max="60"  >
 				</td>
 			</tr>
 			<tr>
@@ -52,7 +53,7 @@ $univ = array(
 					address: 
 				</td>
 				<td>
-					<textarea name="address" cols="40" rows="3" maxlength="100" placeholder="type your address"  ></textarea>
+					<textarea id= "text" name="address" cols="40" rows="3" maxlength="100" placeholder="type your address"  ></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -60,7 +61,7 @@ $univ = array(
 					Email:  
 				</td>
 				<td>
-					<input type="text" name="email" maxlength="30" placeholder="type your email"  >
+					<input id= "text" type="text" name="email" maxlength="30" placeholder="type your email"  >
 				</td>
 			</tr>
 			<tr>
@@ -85,7 +86,7 @@ $univ = array(
 					Phone Number:   
 				</td>
 				<td>
-					<input type="tel" name="phone" pattern="[0-9]{2}-[0-9]{7}" placeholder="12-3456789" 
+					<input id= "text" type="tel" name="phone" pattern="[0-9]{2}-[0-9]{7}" placeholder="12-3456789" 
 					  >
 				</td>
 			</tr>
@@ -99,10 +100,10 @@ $univ = array(
 			</tr>
 			<tr>
 				<td>
-					FB: 
+					Public Profile: 
 				</td>
 				<td>
-					<input type="url" name="fbtwig"  >
+					<input id= "text"  type="url" name="fbtwig"  >
 				</td>
 			</tr>
 			<tr>
@@ -124,10 +125,10 @@ $univ = array(
 		</table>
 		<hr>
 		<input type="hidden" name="matricnum" value="a197547">
-		<input type="submit" name="bio_form" value="Submit My Biodata">
-		<input type="reset" value="Reset all">
+		<input  class="button" type="submit" name="bio_form" value="Submit My Biodata">
+		<input  class="button" type="reset" value="Reset all">
 		<br>
-		<button ><a href="menu.html" target="_parent">menu</a></button>
+		<button class="button"><a href="index.html" target="_parent">menu</a></button>
 	</form>
 </body>
 </html>
