@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>example JavaScript</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onload="percntg()">
+	Score A: <input type="text" id="a" value=""><br>
+		Score B: <input type="text" id="b" value=""><br>
+		Score C: <input type="text" id="c" value=""><br>
+		<button onclick="status(percntg())">calculate</button>
+		<p id="output"></p>
+
+<p id="output"></p>
+</body>
+<script type="text/javascript">
+	function percntg() {
+		var score_a=document.getElementById('a').value;
+		score_a=parseInt(score_a);
+		var score_b=document.getElementById('b').value;
+		score_b=parseInt(score_b);
+		var score_c=document.getElementById('c').value;
+		score_c=parseInt(score_c);
+		if (score_a>100||score_b>100||score_c>100) {
+			window.alert("invaild input")
+			return 0
+		}
+		return (score_a+score_b+score_c)/300*100;
+	}
+	function status(percentage){
+		if (percentage<40) {
+			document.getElementById("output").innerHTML="Stuent failed with "+percentage+"% marks.";
+		} else {
+			document.getElementById("output").innerHTML="Stuent passed with "+percentage+"% marks.";
+		}
+	}
+</script>
+</html>

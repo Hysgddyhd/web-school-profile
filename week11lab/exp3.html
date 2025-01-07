@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>example 3</title>
+	<style type="text/css">
+		input {
+			font: calibre;
+			font-size: 16px;
+			padding: 8px;
+			border: 3px;
+			margin: 4px;
+			background: darkkhaki;
+			color: black;
+		}
+		p {
+			font: sans-serif;
+			font-size: 19px;
+			color: darkmagentak;
+			padding: 9px;
+			border: 2px solid black;
+		}
+	</style>
+</head>
+<body>
+		First name: 
+		<input type="text" id="firstName" value=""><br>
+		Last Name:<input type="text" id="lastName" value=""><br>
+		Age: <input type="number" id="age" value="19",min="10",step="1"> <br>
+		<button onclick="person_info()">info</button>
+		<p id="output"></p>
+
+
+
+</body>
+<script type="text/javascript">
+	
+	function person_info() {
+		const firstName=document.getElementById("firstName").value;
+	var lastName=document.getElementById('lastName').value;
+	var age=document.getElementById('age').value;
+		// body...
+		document.getElementById("output").innerHTML
+		="First Name: "+firstName+"<br>"+
+		"Last Name: "+lastName+"<br>"+
+		"Age: "+age ;
+	}
+</script>
+</html>

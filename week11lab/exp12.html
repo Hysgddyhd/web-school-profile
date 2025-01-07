@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>example 12</title>
+</head>
+<body onload="hierarchy()">
+<p id="output"></p>
+</body>
+<script type="text/javascript">
+	var num=prompt("Please input height of hierarchy:","5");
+	num=parseInt(num);
+	function hierarchy() {
+		var text="";
+		if (num>50||num<1) {
+			window.alert("Invaild input");
+		} else
+		{for (var i = 1; i <=num; i++) {
+					text += "<br>";
+					for (var j = 1; j <= i; j++) {
+						text += j+" ";
+					}
+				}}
+			document.getElementById('output').innerHTML=text
+	}
+</script>
+</html>

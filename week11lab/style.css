@@ -1,0 +1,79 @@
+#output {
+	font: monospace;
+	font-size: 24px;
+	font-weight: bold;
+	border: 3px solid darkmagenta;
+	margin:20px;
+	text-align: center;
+	color: black;
+	cursor: auto;
+	position: sticky;
+
+}
+
+input {
+	font: calibre;
+	font-size: 18px;
+	background: skyblue;
+	color: darkgray
+	padding: 12px 20px;
+  margin: 10px 0px 10px 0px;
+}
+
+textarea, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 10px 0px 10px 0px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font: 100% calibre;
+}
+ 
+
+
+button {
+	color: darkred;
+	background: darkkhaki;
+	font: serif;
+	font-size: 16px;
+	border: 3px solid black;
+	cursor: pointer;
+
+}
+
+p {
+	color: blue;
+	background: white;
+	font: calibre;
+	font-size: 20px;
+	cursor: context-menu;
+}
+
+h1,h2,h3 {
+	font-size: 30px;
+	text-align: center;
+	font-weight: !important;
+	border: 3px solid darkblue;
+	margin: 20px;
+	top: 0;
+	font: sans-serif;
+}
+
+body {
+  font: 100% Lucida Sans, Verdana;
+}
+ 
+label {
+  font-weight: bold;
+}
+ 
+input[type=submit], input[type=reset], button {
+  background-color: blue;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+} 

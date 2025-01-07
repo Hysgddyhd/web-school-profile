@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>example js 15</title>
+</head>
+<body onload="printInfo()">
+	<h2>Info of Employee</h2>
+<p id="output"></p>
+</body>
+<script type="text/javascript">
+	const employee=[["Honey",25,2000],
+					["Jack",30,2300],
+					["Mike",27,2300]];
+	var text="";
+	for (var i = 0; i < employee.length; i++) {
+		text+="<br>";
+		for (var j = 0; j < 1; j++) {
+			text+="This is "+employee[i][j]+". He is "+employee[i][j+1]+" years old. His salary is "+employee[i][j+2]+".";
+		}
+	}
+	function printInfo() {
+		document.getElementById('output').innerHTML=text
+	}
+</script>
+</html>
