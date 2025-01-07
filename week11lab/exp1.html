@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		#button {
+			color: cyan;
+			font: alef;
+			background: darkgrey;
+			padding: 8px;
+			font-size: 18px;
+		}
+		h2 {
+			border: 3px solid darkblue;
+			font: sans-serif;
+		}
+	</style>
+	<title>example 1</title>
+</head>
+<body>
+	<h2 id="head">Hello</h2>
+	<div>
+		<button id="button" onclick="callHello()">
+			Click Me
+		</button>
+	</div>
+</body>
+<script type="text/javascript">
+	var head=document.getElementById("head")
+	function callHello() {
+		// body...
+		head.innerHTML += " Hello"
+		console.log("hello")
+		window.alert("Hello")
+		document.write("Hello")
+
+		
+	}
+</script>
+</html>

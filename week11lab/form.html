@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		input {
+			width: 100%;
+			background: lightgray;
+		}
+		button {
+			background: lightskyblue;
+			color: black;
+		}
+	</style>
+	<title>MyKad registration form</title>
+</head>
+<body>
+	<form action="#" method="post">
+	  <label for="id_name">Name:</label>
+	  <input type="text" name="name" id="id_name" required>
+	   
+	  <label for="id_mycard">MyCard Number:</label>
+	  <div><input type="text" name="mycard" id="id_mycard" style="width: 80%" required placeholder="format Year/Mon/Day(6 digital),state(2 digital),gender(4digital) " pattern="[0-9]{6}[0-9]{2}[0-9]{4}">
+	  <button type="button" name="search" id="is_search" onclick="check_mycard()" style="width:15%">Validate MyCard</button></div>
+	   
+	  <label for="id_dob">DOB:</label>
+	  <input type="text" name="dob" id="id_dob" required>
+	   
+	  <label for="id_state">State of Birth:</label>
+	  <select name="state" id="id_state" required>
+	    <option>Select</option>
+	      <option value="01">Johor</option>
+	      <option value="02">Kedah</option>
+	      <option value="03">Kelantan</option>
+	      <option value="04">Melaka</option>
+	      <option value="05">Negeri Sembilan</option>
+	      <option value="06">Pahang</option>
+	      <option value="08">Perak</option>
+	      <option value="09">Perlis</option>
+	      <option value="07">Pulau Pinang</option>
+	      <option value="12">Sabah</option>
+	      <option value="13">Sarawak</option>
+	      <option value="10">Selangor</option>
+	      <option value="11">Terengganu</option>
+	      <option value="14">Wilayah Persekutuan - Kuala Lumpur</option>
+	      <option value="15">Wilayah Persekutuan - Labuan</option>
+	      <option value="16">Wilayah Persekutuan - Putrajaya</option>
+	  </select>
+	   
+	  <label for="id_sex">Sex:</label>
+	  <select name="place" id="id_sex" required>
+	    <option>Select</option>
+	    <option value="m">Male</option>
+	    <option value="f">Female</option>
+	  </select>
+	   
+	  <label for="id_myself">Describe About Yourself:</label>
+	  <textarea name="myself" id="id_myself" rows="5" required></textarea>
+	 
+	  <input type="submit" name="js_form" value="Submit">
+	  <input type="reset">
+	</form>
+</body>
+</html>
+<script type="text/javascript">
+	var mycard = document.getElementById('id_mycard');
+	function check_mycard() {
+		if (mycard.value == "") {
+		  // show a pop up box says "Please insert your MyCard number"
+		  // put cursor inside the MyCard textbox
+			window.alert("Please input card number: ");
+			mycard.setSelectionRange(start, end);
+		  	return false;
+		}
+		var patt = new RegExp(mycard.getAttribute('pattern'));
+		console.log(patt)
+		isValid = patt.test(mycard.value);
+		if(isValid){
+		  // validate date
+			var dob_year=mycard.value.slice(0, 2);
+			if (dob_year>25) {
+				dob_year = parseInt(dob_year)+1900
+			}else	{
+				dob_year = parseInt(dob_year)+2000
+			}
+			var dob_month=mycard.value.slice(2,4);
+			if (dob_month>=12) {dob_month%=12}
+			var dob_day=mycard.value.slice(4,6);
+			if(dob_day>31) {dob_day%=31}
+			var date= new Date(dob_year,dob_month,dob_day)
+			console.log(new Intl.DateTimeFormat('en-US').format(date),)
+			//validate state
+			var state=mycard.value.slice(6,8);
+			if (state>16) {state%=16}
+			var sex=mycard.value.slice(8,12);
+			console.log(state,sex);
+			if (isEven(sex)) {
+				var gender = "f";
+			} else {
+				var gender ="m";
+			}
+			//write dob , state, sex
+			document.getElementById('id_dob').value=new Intl.DateTimeFormat('en-US').format(date)
+			setSelectedValue(document.getElementById('id_state'),state)
+			setSelectedValue(document.getElementById('id_sex'),gender);
+		}      
+		else {
+		  alert("Please insert a correct MyCard number");
+		  mycard.focus();
+		}
+	}
+	function setSelectedValue(selectObj, valueToSet) {
+	  for (var i = 0; i < selectObj.options.length; i++) {
+	      if (selectObj.options[i].value== valueToSet) {
+	          selectObj.options[i].selected = true;
+	          return;
+	      }
+	  }
+	}
+
+	function isEven(value){
+	    if (value%2 == 0)
+	        return true;
+	    else
+	        return false;
+	}
+</script>

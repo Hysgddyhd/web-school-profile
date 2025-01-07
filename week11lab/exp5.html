@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>example 5</title>
+</head>
+<body onload="isEven()">
+<p id="output"></p>
+
+</body>
+<script type="text/javascript">
+	function isEven() {
+		var number = prompt("Please enter a number:" , "0");
+		var attribute="";
+		if(number%2==1) {
+			attribute="odd";
+		}else {
+			attribute="even";
+		}
+		window.alert("The number you input is "+attribute)
+		document.getElementById("output").innerHTML=attribute
+	}
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>example javascript 8</title>
+</head>
+<body>
+<h2>Create array from arguments</h2>
+<div>
+	Input number (seperate by ','): 
+	<input type="text" id="input" value=""><br>
+	</div><br><br>
+	<button onclick="numArray()" >conert to array</button>
+<br><br>
+<p id="output"></p>
+</body>
+<script type="text/javascript">
+	function numArray() {
+		const str = document.getElementById('input').value;
+
+		const num = str.split(',');
+		var test="array:"
+
+		//window.alert(num.length)
+		for (var i = 0; i < num.length; i++) {
+			test += "<br>"+parseInt(num[i]);
+
+		}
+		//window.alert(test)
+		document.getElementById('output').innerHTML=test
+
+	}
+</script>
+</html>
