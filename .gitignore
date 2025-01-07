@@ -25,9 +25,4 @@ bitnami.css
 favicon.ico
 index.php
 
-/website lecture folders
-users/
-icons/
-lecturecodes/
-
-
+lecture_code/
