@@ -1,0 +1,3 @@
+<br />
+<b>Notice</b>:  Undefined index: e in <b>C:\xampp\htdocs\lecturecodes\12-ajax\16-api.php</b> on line <b>7</b><br />
+{"id":"60","name":"A178875@siswa.ukm.edu.my","age":"21","sex":"male","address":"China","email":"","dob":"2000-04-29","height":"150","phone":"+86 13953690182","color":"#e71313","fbtwig":"https:\/\/www.facebook.com\/xu.luke.98","photo":"uploads\/me.jpg","univ":"","matricnum":"a123456","timestamp":"2022-04-15 09:50:27"}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Identity</title>
+</head>
+<body>
+
+<?php 
+
+$arr1 = array("model" => "x70", "price" => "90000"); # change price int
+$arr2 = array("price" => "90000", "model" => "x70"); # change back order
+
+if ($arr1 === $arr2)
+	echo "arr1 and arr2 have the same key/value pairs in the same order and of the same types";
+
+if ($arr1 !== $arr2)
+	echo "arr1 and arr2 don't have the same key/value pairs in the same order and of the same types";
+
+echo "<br><br>";
+var_dump($arr1, $arr2);
+?>
+
+</body>
+</html>

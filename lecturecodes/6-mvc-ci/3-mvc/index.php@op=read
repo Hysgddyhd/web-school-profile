@@ -1,0 +1,18 @@
+Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)<!DOCTYPE html>
+<html>
+<head>
+<meta>
+	<title>Guestbook</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+	<ol>
+		<br />
+<b>Warning</b>:  Invalid argument supplied for foreach() in <b>C:\xampp\htdocs\lecturecodes\6-mvc-ci\3-mvc\view\list.php</b> on line <b>10</b><br />
+	</ol>
+	<div align="center">
+		[ <a href="index.php?op=create">Add</a> ]
+	</div>
+</body>
+
+</html>

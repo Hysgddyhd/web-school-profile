@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>AJAX Get</h2>
+<button type="button" onclick="get()">Change Content</button>
+<div>
+  <h2>Non-AJAX: <a href="demo.txt">Change Content</a></h2>	
+</div>
+<div id="demo">
+    <p>Content of the result DIV box will be replaced by the server response</p>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+function get() {
+  if (window.XMLHttpRequest) {
+    xmlhttp = new XMLHttpRequest(); // code for modern browsers
+  } else {
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); // code for old IE browsers
+  }
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xmlhttp.open("GET", "demo.txt", true);
+  xmlhttp.send();
+}
+
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /lecturecodes/2-htmlform</title>
+ </head>
+ <body>
+<h1>Index of /lecturecodes/2-htmlform</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=D">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/lecturecodes/">Parent Directory</a>       </td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="1-login_form.html">1-login_form.html</a>      </td><td align="right">2022-04-08 09:35  </td><td align="right">466 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="1-login_process.php">1-login_process.php</a>    </td><td align="right">2022-04-08 09:35  </td><td align="right">139 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="2-login_post.html">2-login_post.html</a>      </td><td align="right">2022-04-08 09:35  </td><td align="right">454 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="3-input_text.html">3-input_text.html</a>      </td><td align="right">2022-04-08 09:35  </td><td align="right">558 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="4-input_button.html">4-input_button.html</a>    </td><td align="right">2022-04-08 09:35  </td><td align="right">425 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="5-input_checkbox.html">5-input_checkbox.html</a>  </td><td align="right">2022-04-08 09:35  </td><td align="right">507 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="6-input_color.html">6-input_color.html</a>     </td><td align="right">2022-04-08 09:35  </td><td align="right">376 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="7-input_date.html">7-input_date.html</a>      </td><td align="right">2022-04-08 09:35  </td><td align="right">359 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="8-input_datetimelocal.html">8-input_datetimeloca..&gt;</a></td><td align="right">2022-04-08 09:35  </td><td align="right">408 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="9-input_email.html">9-input_email.html</a>     </td><td align="right">2022-04-08 09:35  </td><td align="right">306 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="10-input_file.html">10-input_file.html</a>     </td><td align="right">2022-04-08 09:35  </td><td align="right">304 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="11-input_hidden.html">11-input_hidden.html</a>   </td><td align="right">2022-04-08 09:35  </td><td align="right">566 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="12-input_image.html">12-input_image.html</a>    </td><td align="right">2022-04-08 09:35  </td><td align="right">511 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="13-input_month.html">13-input_month.html</a>    </td><td align="right">2022-04-08 09:35  </td><td align="right">431 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="14-input_number.html">14-input_number.html</a>   </td><td align="right">2022-04-08 09:35  </td><td align="right">297 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="15-input_password.html">15-input_password.html</a> </td><td align="right">2022-04-08 09:35  </td><td align="right">638 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="15-input_range.html">15-input_range.html</a>    </td><td align="right">2022-04-08 09:35  </td><td align="right">334 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="16-input_radio.html">16-input_radio.html</a>    </td><td align="right">2022-04-08 09:35  </td><td align="right">943 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="17-input_reset.html">17-input_reset.html</a>    </td><td align="right">2022-04-08 09:35  </td><td align="right">613 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="18-input_search.html">18-input_search.html</a>   </td><td align="right">2022-04-08 09:35  </td><td align="right">241 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="19-input_submit.html">19-input_submit.html</a>   </td><td align="right">2022-04-08 09:35  </td><td align="right">466 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="20-input_tel.html">20-input_tel.html</a>      </td><td align="right">2022-04-08 09:35  </td><td align="right">326 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="21-input_time.html">21-input_time.html</a>     </td><td align="right">2022-04-08 09:35  </td><td align="right">282 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="22-input_url.html">22-input_url.html</a>      </td><td align="right">2022-04-08 09:35  </td><td align="right">245 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="23-input_week.html">23-input_week.html</a>     </td><td align="right">2022-04-08 09:35  </td><td align="right">232 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="24-textarea.html">24-textarea.html</a>       </td><td align="right">2022-04-08 09:35  </td><td align="right">597 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="25-select.html">25-select.html</a>         </td><td align="right">2022-04-08 09:35  </td><td align="right">460 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="26-datalist.html">26-datalist.html</a>       </td><td align="right">2023-04-07 10:16  </td><td align="right">453 </td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.16 (Win32) OpenSSL/1.0.1p PHP/5.5.28 Server at lrgs.ftsm.ukm.my Port 443</address>
+</body></html>

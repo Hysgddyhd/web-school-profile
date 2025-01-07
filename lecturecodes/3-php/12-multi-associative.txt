@@ -1,0 +1,19 @@
+<?php
+$cars = array(
+    "Volvo"=>array("model"=>"xc40", "year"=>2020),
+    "Proton"=>array("model"=>"x70", "year"=>2018),
+    "Toyota"=>array("model"=>"vios", "year"=>2022),
+    "Honda"=>array("model"=>"accord", "year"=>2022),
+    "Hyundai"=>array("model"=>"tucson", "year"=>2021)
+);
+
+$keys = array_keys($cars);
+
+echo "My ".$cars['Honda']['model']." ".$keys[3]." car is made in ".$cars['Honda']['year'];
+echo "<br><br>";
+?>
+
+<?php foreach($cars as $key => $val) { ?>
+<input type="checkbox" name="<?php echo $val['model'] ?>" value="<?php echo $val['year'] ?>"><?php echo $key ?>
+<?php echo "<br>".PHP_EOL ?>
+<?php } ?>

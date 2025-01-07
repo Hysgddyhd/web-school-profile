@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /lecturecodes/12-ajax</title>
+ </head>
+ <body>
+<h1>Index of /lecturecodes/12-ajax</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/lecturecodes/">Parent Directory</a>       </td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="biodata.json">biodata.json</a>           </td><td align="right">2022-06-23 23:09  </td><td align="right">105K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="17-jquery_json.html">17-jquery_json.html</a>    </td><td align="right">2022-06-23 23:09  </td><td align="right">1.2K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="8-ajax_post.html">8-ajax_post.html</a>       </td><td align="right">2022-06-23 23:09  </td><td align="right">1.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="2-xhr_post.html">2-xhr_post.html</a>        </td><td align="right">2022-06-23 23:09  </td><td align="right">1.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="6-jquery_post.html">6-jquery_post.html</a>     </td><td align="right">2022-06-23 23:09  </td><td align="right">940 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="7-ajax_get.html">7-ajax_get.html</a>        </td><td align="right">2022-06-23 23:09  </td><td align="right">885 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="1-xhr_get.html">1-xhr_get.html</a>         </td><td align="right">2022-06-23 23:09  </td><td align="right">828 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="4-jquery_load2.html">4-jquery_load2.html</a>    </td><td align="right">2022-06-23 23:09  </td><td align="right">769 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="5-jquery_get.html">5-jquery_get.html</a>      </td><td align="right">2022-06-23 23:09  </td><td align="right">752 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="ajax.gif">ajax.gif</a>               </td><td align="right">2022-06-23 23:09  </td><td align="right">723 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="3-jquery_load.html">3-jquery_load.html</a>     </td><td align="right">2022-06-23 23:09  </td><td align="right">516 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="13-js_json_array.html">13-js_json_array.html</a>  </td><td align="right">2022-06-23 23:09  </td><td align="right">474 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="14-php_json_array.php">14-php_json_array.php</a>  </td><td align="right">2022-06-23 23:09  </td><td align="right">365 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="demo.php">demo.php</a>               </td><td align="right">2022-06-23 23:09  </td><td align="right">360 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="16-api.php">16-api.php</a>             </td><td align="right">2022-06-23 23:09  </td><td align="right">322 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="9-js_parse.html">9-js_parse.html</a>        </td><td align="right">2022-06-23 23:09  </td><td align="right">306 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="11-js_stringify.html">11-js_stringify.html</a>   </td><td align="right">2022-06-23 23:09  </td><td align="right">292 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="15-read_json_file.php">15-read_json_file.php</a>  </td><td align="right">2022-06-23 23:09  </td><td align="right">203 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="10-php_decode.php">10-php_decode.php</a>      </td><td align="right">2022-06-23 23:09  </td><td align="right">174 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="12-php_encode.php">12-php_encode.php</a>      </td><td align="right">2022-06-23 23:09  </td><td align="right">136 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="demo.txt">demo.txt</a>               </td><td align="right">2022-06-23 23:09  </td><td align="right">119 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="week13lab/">week13lab/</a>             </td><td align="right">2022-06-23 23:09  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="client_php/">client_php/</a>            </td><td align="right">2022-06-23 23:09  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.16 (Win32) OpenSSL/1.0.1p PHP/5.5.28 Server at lrgs.ftsm.ukm.my Port 443</address>
+</body></html>

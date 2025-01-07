@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JSON String Array in JS</h2>
+
+<p id="demo"></p>
+
+<script>
+const obj = [{"name":"Tom", "age":25, "city":"Bangi"},{"name":"John", "age":30, "city":"Kajang"}];
+const myJSON = JSON.stringify(obj);
+document.querySelector("#demo").innerHTML = myJSON;
+
+const obj2 = JSON.parse(myJSON);
+for (var i = 0; i < obj2.length; i++) {
+  document.write(obj2[i].name + " live in " + obj2[i].city + "<br>");
+}
+</script>
+
+</body>
+</html>

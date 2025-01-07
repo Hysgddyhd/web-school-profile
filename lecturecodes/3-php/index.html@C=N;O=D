@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /lecturecodes/3-php</title>
+ </head>
+ <body>
+<h1>Index of /lecturecodes/3-php</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/lecturecodes/">Parent Directory</a>       </td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="18-datetime.txt">18-datetime.txt</a>        </td><td align="right">2022-04-15 08:54  </td><td align="right">603 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="18-datetime.php">18-datetime.php</a>        </td><td align="right">2022-04-15 08:41  </td><td align="right">603 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="17-function.txt">17-function.txt</a>        </td><td align="right">2022-04-15 08:54  </td><td align="right">719 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="17-function.php">17-function.php</a>        </td><td align="right">2022-04-15 08:41  </td><td align="right">719 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="16-if.txt">16-if.txt</a>              </td><td align="right">2022-04-15 08:54  </td><td align="right">485 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="16-if.php">16-if.php</a>              </td><td align="right">2022-04-15 08:41  </td><td align="right">485 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="15-isset.txt">15-isset.txt</a>           </td><td align="right">2022-04-15 08:54  </td><td align="right">372 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="15-isset.php">15-isset.php</a>           </td><td align="right">2022-04-15 08:41  </td><td align="right">372 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="14-identity.txt">14-identity.txt</a>        </td><td align="right">2022-04-15 08:54  </td><td align="right">569 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="14-identity.php">14-identity.php</a>        </td><td align="right">2022-04-15 08:41  </td><td align="right">569 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="13-identical.txt">13-identical.txt</a>       </td><td align="right">2022-04-15 08:54  </td><td align="right">397 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="13-identical.php">13-identical.php</a>       </td><td align="right">2022-04-15 08:41  </td><td align="right">397 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="12-multi-associative.txt">12-multi-associative..&gt;</a></td><td align="right">2022-04-15 08:54  </td><td align="right">639 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="12-multi-associative.php">12-multi-associative..&gt;</a></td><td align="right">2022-04-15 08:41  </td><td align="right">639 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="11-indexed-associative-array.txt">11-indexed-associati..&gt;</a></td><td align="right">2022-04-15 08:54  </td><td align="right">618 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="11-indexed-associative-array.php">11-indexed-associati..&gt;</a></td><td align="right">2022-04-15 08:41  </td><td align="right">618 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="10-associative-array.txt">10-associative-array..&gt;</a></td><td align="right">2022-04-15 08:54  </td><td align="right">342 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="10-associative-array.php">10-associative-array..&gt;</a></td><td align="right">2022-04-15 08:41  </td><td align="right">342 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="9-multi-numeric-array.txt">9-multi-numeric-arra..&gt;</a></td><td align="right">2022-04-15 08:54  </td><td align="right">647 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="9-multi-numeric-array.php">9-multi-numeric-arra..&gt;</a></td><td align="right">2022-04-15 08:41  </td><td align="right">647 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="8-numeric-array.txt">8-numeric-array.txt</a>    </td><td align="right">2022-04-15 08:54  </td><td align="right">437 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="8-numeric-array.php">8-numeric-array.php</a>    </td><td align="right">2022-04-15 08:41  </td><td align="right">437 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="7-string.txt">7-string.txt</a>           </td><td align="right">2022-04-15 08:54  </td><td align="right">437 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="7-string.php">7-string.php</a>           </td><td align="right">2022-04-15 08:41  </td><td align="right">437 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="6-datatype.txt">6-datatype.txt</a>         </td><td align="right">2022-04-15 08:54  </td><td align="right">600 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="6-datatype.php">6-datatype.php</a>         </td><td align="right">2022-04-15 08:41  </td><td align="right">600 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="5-scope.txt">5-scope.txt</a>            </td><td align="right">2022-04-15 08:54  </td><td align="right">689 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="5-scope.php">5-scope.php</a>            </td><td align="right">2022-04-15 08:41  </td><td align="right">689 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="4-output.txt">4-output.txt</a>           </td><td align="right">2022-04-15 08:54  </td><td align="right">766 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="4-output.php">4-output.php</a>           </td><td align="right">2022-04-15 08:41  </td><td align="right">766 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="3-sensitivity.txt">3-sensitivity.txt</a>      </td><td align="right">2022-04-15 08:54  </td><td align="right">340 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="3-sensitivity.php">3-sensitivity.php</a>      </td><td align="right">2022-04-15 08:41  </td><td align="right">340 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="2-variable.txt">2-variable.txt</a>         </td><td align="right">2022-04-15 08:54  </td><td align="right">721 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="2-variable.php">2-variable.php</a>         </td><td align="right">2022-04-15 08:41  </td><td align="right">721 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="1-syntax.txt">1-syntax.txt</a>           </td><td align="right">2022-04-15 08:54  </td><td align="right">693 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="1-syntax.php">1-syntax.php</a>           </td><td align="right">2022-04-15 08:41  </td><td align="right">693 </td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.16 (Win32) OpenSSL/1.0.1p PHP/5.5.28 Server at lrgs.ftsm.ukm.my Port 443</address>
+</body></html>

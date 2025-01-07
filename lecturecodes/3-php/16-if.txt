@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>IF</title>
+</head>
+<body>
+
+<?php
+$t = date("H");
+
+if ($t < "10") {
+    echo "<h1>Have a good morning!</h1>";
+} elseif ($t < "20") {
+    echo "<h5>Have a good day!</h5>";
+} else {
+    echo "Have a good night!";
+}
+?>
+
+<?php if ($t < "10") { ?>
+<h1>Have a good morning!</h1>
+<?php } elseif ($t < "20") { ?>
+<h5>Have a good day!</h5>
+<?php } else { ?>
+Have a good night!
+<?php } ?>
+
+</body>
+</html>

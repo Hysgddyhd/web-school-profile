@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        var formValues = $("#myForm").serialize();
+        $.post("demo.php", formValues,
+        function(data, status, xhr){
+            if(status == "success")
+                $("#output").html(data);
+                alert("External content loaded successfully!");
+            if(status == "error")
+                alert("Error: " + xhr.status + ": " + xhr.statusText); 
+        });
+    });
+});
+</script>
+</head>
+<body>
+
+<h2>jQuery - $.post()</h2>
+<form id="myForm">
+  <label>Name:</label>
+  <div><input type="text" name="name"></div>
+  <br>
+  <button type="button">Send HTTP POST</button>
+</form><br>
+<div id="output">Content of the result DIV box will be replaced by the server response</div>
+
+</body>
+</html>

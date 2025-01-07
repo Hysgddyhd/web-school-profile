@@ -1,0 +1,1 @@
+PHP_SELF : /lecturecodes/5-advphp/2-server/1-server.php<br>SERVER_NAME : lrgs.ftsm.ukm.my<br>HTTP_HOST : lrgs.ftsm.ukm.my<br>HTTP_REFERER : https://lrgs.ftsm.ukm.my/lecturecodes/5-advphp/2-server/<br>HTTP_USER_AGENT : Wget/1.21.4<br>SCRIPT_NAME : /lecturecodes/5-advphp/2-server/1-server.php

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /lecturecodes/10-javascript</title>
+ </head>
+ <body>
+<h1>Index of /lecturecodes/10-javascript</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=D">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/lecturecodes/">Parent Directory</a>       </td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="1-internal.html">1-internal.html</a>        </td><td align="right">2022-06-03 12:12  </td><td align="right">485 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="10-object.html">10-object.html</a>         </td><td align="right">2022-06-03 12:12  </td><td align="right">525 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="12-events.html">12-events.html</a>         </td><td align="right">2022-06-03 12:12  </td><td align="right">367 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="13-querySelectorAll.html">13-querySelectorAll...&gt;</a></td><td align="right">2022-06-03 12:12  </td><td align="right">569 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="14-createElement.html">14-createElement.html</a>  </td><td align="right">2022-06-03 12:12  </td><td align="right">499 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="15-removechild.html">15-removechild.html</a>    </td><td align="right">2022-06-03 12:12  </td><td align="right">302 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="16-setAttribute.html">16-setAttribute.html</a>   </td><td align="right">2022-06-03 12:12  </td><td align="right">427 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="17-getAttribute.html">17-getAttribute.html</a>   </td><td align="right">2022-06-03 12:12  </td><td align="right">479 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="19-window.html">19-window.html</a>         </td><td align="right">2022-06-03 12:12  </td><td align="right">804 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="18-addEventListener.html">18-addEventListener...&gt;</a></td><td align="right">2022-06-03 12:12  </td><td align="right">811 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="2-external.html">2-external.html</a>        </td><td align="right">2022-06-03 12:12  </td><td align="right">293 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="3-write.html">3-write.html</a>           </td><td align="right">2022-06-03 12:12  </td><td align="right">292 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="4-write2.html">4-write2.html</a>          </td><td align="right">2022-06-03 12:12  </td><td align="right">252 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="5-innerhtml.html">5-innerhtml.html</a>       </td><td align="right">2022-06-03 12:12  </td><td align="right">282 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="6-console.html">6-console.html</a>         </td><td align="right">2022-06-03 12:12  </td><td align="right">311 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="7-boxes.html">7-boxes.html</a>           </td><td align="right">2022-06-03 12:12  </td><td align="right">573 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="8-string.html">8-string.html</a>          </td><td align="right">2022-06-03 12:12  </td><td align="right">591 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="9-array.html">9-array.html</a>           </td><td align="right">2022-06-03 12:12  </td><td align="right">405 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="myScript.js">myScript.js</a>            </td><td align="right">2022-06-03 12:12  </td><td align="right"> 99 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="pic_bulboff.gif">pic_bulboff.gif</a>        </td><td align="right">2022-06-03 12:12  </td><td align="right">2.4K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="pic_bulbon.gif">pic_bulbon.gif</a>         </td><td align="right">2022-06-03 12:12  </td><td align="right">2.5K</td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.16 (Win32) OpenSSL/1.0.1p PHP/5.5.28 Server at lrgs.ftsm.ukm.my Port 443</address>
+</body></html>

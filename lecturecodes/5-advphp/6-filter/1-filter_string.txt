@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+	Address:<br>
+	<textarea name="myaddress" cols="50" rows="5"><h1>Hello&nbsp;World!</h1><img src="http://lrgs.ftsm.ukm.my/users/a123456/logo.png"></textarea>
+	<br>
+	<input type="submit">
+</form>
+
+</body>
+</html>
+
+<?php 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+  $add = $_POST['myaddress']; // collect value of input field
+  //$add = filter_var($_POST['myaddress'], FILTER_SANITIZE_STRING);;
+  
+  if (empty($add)) {
+    echo "Address is empty";
+  } else {
+    echo $add;
+  }
+}
+
+?>

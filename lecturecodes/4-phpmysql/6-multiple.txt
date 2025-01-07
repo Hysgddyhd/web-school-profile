@@ -1,0 +1,34 @@
+<?php
+$servername = "lrgs.ftsm.ukm.my";
+$username = "a123456";
+$password = "a123456";
+$dbname = "a123456";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // begin the transaction
+    $conn->beginTransaction();
+    // Multiple SQL statements
+    $sql1 = "INSERT INTO biodata(name, age, sex, address, email, dob, height, phone, color, fbtwig, univ) VALUES ('Faidzul',41,'Male','Bandar Seri Putra','mfn@ukm.edu.my','1975-10-31',188,'+6012-2646234','#ccaabb','https://www.facebook.com/mohammad.f.nasrudin','UKM')";
+    $conn->exec($sql1);
+    $sql2 = "INSERT INTO biodata(name, age, sex, address, email, dob, height, phone, color, fbtwig, univ) VALUES ('Hafiz',41,'Male','Damasara','hafiz@ukm.edu.my','1975-09-01',156,'+6012-26731822','#561299','https://www.facebook.com/hafiz','UTM')";
+    $conn->exec($sql2);
+    $sql3 = "INSERT INTO biodata(name, age, sex, address, email, dob, height, phone, color, fbtwig, univ) VALUES ('Zakri',41,'Male','Bangi','zakri@ukm.edu.my','1975-02-14',161,'+6012-2894134','#921caa','https://www.facebook.com/zakri','UPM')";
+    $conn->exec($sql3);
+
+    // commit the transaction
+    $conn->commit();
+    echo "New records created successfully";
+    }
+catch(PDOException $e)
+    {
+    // roll back the transaction if something failed
+    $conn->rollback();
+    echo "Error: " . $e->getMessage();
+    }
+
+$conn = null;
+?>

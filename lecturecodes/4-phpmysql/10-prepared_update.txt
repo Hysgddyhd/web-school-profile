@@ -1,0 +1,29 @@
+<?php
+$servername = "lrgs.ftsm.ukm.my";
+$username = "a123456";
+$password = "a123456";
+$database = "a123456";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Prepare statement
+    $stmt = $conn->prepare("UPDATE Biodata SET height=:h WHERE id=:bio_id");
+    $stmt->bindParam(':h', $_GET['height'], PDO::PARAM_INT);
+    $stmt->bindParam(':bio_id', $_GET['id'], PDO::PARAM_STR);
+
+    // execute the query
+    $stmt->execute();
+
+    // echo a message to say the UPDATE succeeded
+    echo $stmt->rowCount() . " records UPDATED successfully";
+    }
+catch(PDOException $e)
+    {
+    echo $sql . "<br>" . $e->getMessage();
+    }
+
+$conn = null;
+?>

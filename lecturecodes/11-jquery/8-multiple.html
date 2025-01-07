@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		$("p").on({
+		    mouseenter: function(){
+		        $(this).css("background-color", "lightgray");
+		    }, 
+		    mouseleave: function(){
+		        $(this).css("background-color", "lightblue");
+		    }, 
+		    click: function(){
+		        $(this).css("background-color", "yellow");
+		    } 
+		});
+	});
+</script>
+
+</head>
+<body>
+
+<p>
+	This is a P element
+</p>
+
+</body>
+</html>

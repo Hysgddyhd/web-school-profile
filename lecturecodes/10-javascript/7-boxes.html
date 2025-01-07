@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+</body>
+</html> 
+<script>
+
+window.alert(5 + 6);
+alert("hello");
+
+if (confirm("Press a button!")) {
+    txt = "You pressed OK";
+  } else {
+    txt = "You pressed Cancel";
+  }
+document.querySelector("#demo").innerHTML = txt;
+
+var person = prompt("Please enter your name", "John Doe");
+var text;
+if (person == null || person == "") {
+  txt2 = "User cancelled the prompt.";
+} else {
+  txt2 = "Hello " + person + "! How are you today?";
+}
+document.querySelector("#demo").innerHTML = txt2;
+
+</script>

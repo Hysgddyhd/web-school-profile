@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+
+        var formValues = $("#myForm").serialize();
+        $.ajax({
+        	type: 'POST',
+            data: formValues,
+        	dataType: "json",
+        	url: "16-api.php", 
+        	beforeSend: function(xhr){
+                $("#output").html("<img src='ajax.gif'>");
+            },
+            success: function(result){
+                console.log(result);
+                if (result != "-1")
+            	   $("#output").html(result.name);
+                else
+                    $("#output").html("Not found.");
+        	},
+        	error: function (xhr, status) {
+            	alert("Error: " + xhr.status + ": " + xhr.statusText);
+        	},
+        });
+
+
+        
+    });
+});
+</script>
+</head>
+<body>
+
+<h2>jQuery - $.ajax() Post</h2>
+<form id="myForm">
+  <label>Email:</label>
+  <div><input type="text" name="e"></div>
+  <br>
+  <button type="button">Search</button>
+</form><br>
+<div id="output">Content of the result DIV box will be replaced by the server response</div>
+
+</body>
+</html>

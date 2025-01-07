@@ -1,0 +1,33 @@
+<?php 
+
+$var = 100;
+var_dump($var); die();
+
+$var = (string) $var; # explicit type casting
+//settype($var, "string"); # using settype function
+var_dump($var); die();
+
+$var = (float) $var;
+//settype($var, "float");
+var_dump($var); die();
+
+$var = (boolean) $var;
+//settype($var, "boolean");
+var_dump($var); die();
+
+$var = (array) $var;
+//settype($var, "array");
+var_dump($var); die();
+
+$var = (object) $var;
+//settype($var, "object");
+var_dump($var); die();
+
+$var = (object) $var;
+//settype($var, "string");
+var_dump($var); die();
+
+$var = NULL;
+var_dump($var); die();
+
+?>

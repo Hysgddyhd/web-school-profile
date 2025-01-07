@@ -1,0 +1,24 @@
+<?php 
+$x = '"One" \'Two\' \nThree \rFour F\\ve \$ix';
+$y = "'One' \"Two\" \nThree \rFour F\\ve \$ix";
+
+echo $x;
+echo "<br>";
+
+echo $y;
+echo "<br>"; 
+
+echo strlen($x); // outputs 12
+echo "<br>"; 
+
+echo str_word_count($x); // outputs 2
+echo "<br>"; 
+
+echo strrev($x); // outputs !dlrow olleH
+echo "<br>"; 
+
+echo strpos($x, "o"); // outputs 6
+echo "<br>"; 
+
+echo str_replace("F", "S", $x); // outputs Hello Dolly!
+?>

@@ -1,0 +1,16 @@
+<?php
+
+// set the expiration date to one hour ago
+foreach($_COOKIE AS $key => $value) {
+     setcookie($key, $value, time()-3600, "/");
+}
+
+?>
+<!DOCTYPE html>
+<html>
+<body>
+
+Cookies are deleted.
+
+</body>
+</html>

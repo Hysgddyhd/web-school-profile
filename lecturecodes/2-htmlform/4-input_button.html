@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Normal Button</h1>
+
+<p>The button below activates a JavaScript when it is clicked.</p>
+<form id="myform" action="proces.php">
+  <input type="button" value="Today's Date" onclick="msg()"><br>
+  <button type="button" onclick="msg()">Today's <br> Date</button>
+</form>
+
+<script>
+function msg() {
+  alert(Date());
+  //document.getElementById("myform").submit();
+}
+</script>
+
+</body>
+</html>

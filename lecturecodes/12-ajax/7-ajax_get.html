@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+
+        $.ajax({
+        	type: 'GET',
+        	dataType: "html",
+        	url: "demo.txt", 
+        	beforeSend: function(xhr){
+                $("#output").html("<img src='ajax.gif'>");
+            },
+            success: function(result){
+            	$("#output").html(result);
+        	},
+        	error: function (xhr, status) {
+            	alert("Error: " + xhr.status + ": " + xhr.statusText);
+        	},
+        });
+
+
+        
+    });
+});
+</script>
+</head>
+<body>
+
+<h2>jQuery - $.ajax() Get</h2>
+<button>Send HTTP GET</button>
+<div id="output"><p>Content of the result DIV box will be replaced by the server response</p></div>
+
+</body>
+</html>

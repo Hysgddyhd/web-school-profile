@@ -1,0 +1,1 @@
+1 : Variable inside function : black</br>2 : Variable inside function : white</br>Variable outside the function: #000000</br>3 : Variable inside function : #000000</br>4 : Variable inside function : white</br>Variable outside the function: #000000</br>  

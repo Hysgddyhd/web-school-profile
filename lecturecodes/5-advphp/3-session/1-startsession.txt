@@ -1,0 +1,25 @@
+<?php
+// Start the session
+session_start();
+
+//sql login statement
+
+$_SESSION["username"] = "Faidzul";
+$_SESSION["email"] = "mfn@ukm.edu.my";
+$_SESSION["security"] = "admin";
+
+?>
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+// Display session variables
+
+echo "Session variables are set.<br>";
+echo "Hello ".$_SESSION['username'];
+
+?>
+
+</body>
+</html>

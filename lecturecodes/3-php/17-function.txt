@@ -1,0 +1,39 @@
+<?php 
+
+function NameCap($title) { 
+
+	$smallwordsarray = array('bin','binti','bt','bt.');
+	$bigwordsarray = array( 'a/p', 'a/l' );
+
+	$words = explode(' ', strtolower($title)); # split
+
+	foreach ($words as $key => $word) {
+		if ($key == 0 or !in_array($word, $smallwordsarray)) 
+			if (in_array($word, $bigwordsarray))
+				$words[$key] = strtoupper($word);
+			else
+				$words[$key] = ucwords($word);
+	} 
+	$newtitle = implode(' ', $words); # join
+	return $newtitle;
+	}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>User Defined Function</title>
+</head>
+<body>
+
+<?php 
+
+echo "<h1>";
+echo NameCap("MOHAmmAD FAIDZuL BiN NASruDIN");
+echo "</h1>";
+
+?>
+
+</body>
+</html>

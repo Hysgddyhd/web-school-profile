@@ -1,0 +1,59 @@
+<?php
+$servername = "lrgs.ftsm.ukm.my";
+$username = "a123456";
+$password = "a123456";
+$database = "a123456";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $conn->prepare("INSERT INTO biodata(name, age, sex, address, email, dob, height, phone, color, fbtwig, univ) VALUES (:name,:age,:sex, :address, :email, :dob, :height, :phone, :color, :fbtwig, :univ)");
+    $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+    $stmt->bindParam(':age', $age, PDO::PARAM_INT);
+    $stmt->bindParam(':sex', $sex, PDO::PARAM_STR);
+    $stmt->bindParam(':address', $address, PDO::PARAM_STR);
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->bindParam(':dob', $dob, PDO::PARAM_STR);
+    $stmt->bindParam(':height', $height, PDO::PARAM_INT);
+    $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
+    $stmt->bindParam(':color', $color, PDO::PARAM_STR);
+    $stmt->bindParam(':fbtwig', $fbtwig, PDO::PARAM_STR);
+    $stmt->bindParam(':univ', $univ, PDO::PARAM_STR);
+
+    // insert a row
+    $name = "Faidzul";
+    $age = 41;
+    $sex = "Male";
+    $address = "Bandar Seri Putra";
+    $email = "mfn@ukm.edu.my";
+    $dob = "1975-10-31";
+    $height = 188;
+    $phone = "+6012-2646234";
+    $color = "#ccaabb";
+    $fbtwig = "https://www.facebook.com/mohammad.f.nasrudin";
+    $univ = "UKM";
+    $stmt->execute();
+
+    // insert another row
+    $name = "Hafiz";
+    $age = 41;
+    $sex = "Male";
+    $address = "Damansara";
+    $email = "hafiz@ukm.edu.my";
+    $dob = "1975-09-01";
+    $height = 156;
+    $phone = "+6012-26731822";
+    $color = "#561299";
+    $fbtwig = "https://www.facebook.com/hafiz";
+    $univ = "UTM";
+    $stmt->execute();
+
+    echo "New records created successfully";
+    }
+catch(PDOException $e)
+    {
+    echo "Error: " . $e->getMessage();
+    }
+
+$conn = null;
+?>

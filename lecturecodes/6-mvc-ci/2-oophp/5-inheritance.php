@@ -1,0 +1,1 @@
+Am I a fruit or a berry? The fruit is Strawberry and the color is red.

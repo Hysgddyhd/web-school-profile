@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>isset</title>
+</head>
+<body>
+
+<?php 
+
+$a = 0; # change to ""
+
+if (isset($a))
+  echo "Variable 'a' is set.<br>";
+
+$b = null;
+
+if (isset($b))
+  echo "Variable 'b' is set.";
+
+if (isset($_GET['id'])) # add in URL 'id=10' and 'id='
+  echo "Form variable 'id' is set.";
+
+?>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Range Field</h1>
+
+<form action="process.php">
+  <label for="rat">Rating (between 1 and 5):</label>
+  <input type="range" id="rat" name="rating" min="1" max="5" oninput="val.value=this.value">
+  <output name="val"></output>
+  <br><br>
+  <input type="submit">
+</form>
+
+</body>
+</html>

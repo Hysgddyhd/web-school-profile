@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+    	$("#demo").html("<img src='ajax.gif'>");
+        $("#demo").load("demo.txt");
+    });
+});
+</script>
+</head>
+<body>
+
+<h2>jQuery load()</h2>
+<button>Get External Content</button>
+<div id="demo">
+    <p>Content of the result DIV box will be replaced by the server response</p>
+</div>
+
+</body>
+</html>

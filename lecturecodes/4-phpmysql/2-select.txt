@@ -1,0 +1,25 @@
+<?php
+$servername = "lrgs.ftsm.ukm.my";
+$username = "a123456";
+$password = "a123456";
+$database = "a123456";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT name, phone FROM biodata"; // try false sql without errmode_exception
+    $result = $conn->query($sql); 
+
+    echo '<table border="1"><tr><th>Name</th><th>Phone</th></tr>';  
+    foreach($result as $row) { 
+        echo "<tr><td>".$row["name"]."</td><td>".$row["phone"]."</td></tr>";
+    }
+    echo "</table>";
+    }
+catch(PDOException $e)
+    {
+    echo "Error: " . $e->getMessage();
+    }
+
+$conn = null;
+?>

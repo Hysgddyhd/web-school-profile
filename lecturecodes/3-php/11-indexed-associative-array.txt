@@ -1,0 +1,17 @@
+<?php
+$cars = array(
+    array("brand"=>"Volvo", "model"=>"xc40", "year"=>2020),
+    array("brand"=>"Proton", "model"=>"x70", "year"=>2018),
+    array("brand"=>"Toyota", "model"=>"vios", "year"=>2022),
+    array("brand"=>"Honda", "model"=>"accord", "year"=>2022),
+    array("brand"=>"Hyundai", "model"=>"tucson", "year"=>2021)
+);
+
+echo "My ".$cars[2]['model']." ".$cars[2]['brand']." car is made in ".$cars[2]['year'];
+echo "<br><br>";
+?>
+
+<?php foreach($cars as $car) { ?>
+<input type="radio" name="cars" value="<?php echo $car['year'] ?>"><?php echo $car['brand'] ?>
+<?php echo "<br>" ?>
+<?php } ?>

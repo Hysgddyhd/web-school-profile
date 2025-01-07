@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Syntax PHP</title>
+<style type="text/css">
+	h1 {
+		background-color: yellow;
+		font-size: 45.5px;
+	}
+</style>
+</head>
+<body onload="hi()">
+	<h1><?php echo "PHP print content"; ?></h1>
+	<?php echo "<h1>PHP print tag and content</h1>"; ?>
+<?php
+for($x=1; $x<=5; $x++) {
+	echo "<input type='radio' name='test'>Option $x <br><br>";
+}
+?>
+</body>
+<script type="text/javascript">
+	function hi() {
+		alert ("Hello World!");
+	}
+</script>
+</html>
+<?php 
+// This is a single-line comment
+
+# This is also a single-line comment
+
+/*
+This is a multiple-lines comment block
+that spans over multiple
+lines
+*/
+?>

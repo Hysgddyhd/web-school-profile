@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery Set a DIV Width</title>
+<style type="text/css">
+    .box{
+        float: left;
+        background: #f2f2f2;
+        border: 5px solid #ccc;
+        padding: 50px;
+        margin: 20px;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#set-width-btn").click(function(){
+        var newWidth = $("#input-width").val();
+        $(".box").width(newWidth);
+    });
+    $("#set-height-btn").click(function(){
+        var newHeight = $("#input-height").val();
+        $(".box").height(newHeight);
+    });
+    $("#outer").click(function(){
+        alert("Inner width of div: " + $("div").outerWidth(true));
+    });
+});
+</script>
+</head> 
+<body>
+    <form>
+        <input type="text" id="input-width">
+        <button type="button" id="set-width-btn">Set Width</button> (e.g. 100%, 200px, 50em, auto)<br>
+        <input type="text" id="input-height">
+        <button type="button" id="set-height-btn">Set Heigth</button> (e.g. 100%, 200px, 50em, auto)
+    </form>
+    <br>
+    <div class="box">This is simple DIV box</div>
+    <br><br><br>
+    <button id="outer">Display the outer width of div</button>
+</body>
+</html>

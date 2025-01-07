@@ -1,0 +1,34 @@
+<?php 
+$_mycolor = "yellow"; // This is a string variable
+$loop = 10; # This is a integer variable
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Variable</title>
+<?php 
+$SIZE="45.5"; # This is a double variable
+?>
+<style type="text/css">
+	h1 {
+		background-color: <?php echo $_mycolor; ?>;
+		font-size: <?php echo $SIZE; ?>px;
+	}
+</style>
+</head>
+<body onload="hi()">
+	<h1><?php echo "PHP print content"; ?></h1>
+	<?php echo "<h1>PHP print tag and content</h1>"; ?>
+<?php
+for($x=1; $x<=$loop; $x++) {
+	echo "<input type='radio' name='test'>Option $x <br><br>";
+}
+?>
+</body>
+<script type="text/javascript">
+	function hi() {
+		alert ("Hello World!");
+	}
+</script>
+</html>

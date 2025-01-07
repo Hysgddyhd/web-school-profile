@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+
+<script>
+
+var a = "It's alright"; //single quote inside double quotes
+var b = "He is called 'Johnny'";
+var c = 'He is called "Johnny"'; //double quotes inside single quotes
+var d = 'It\'s alright'; //slash as escape sequence
+var e = "He is the so-called \"Viking\" from the north.";
+
+document.querySelector("#demo").innerHTML = a + "<br>" + b + "<br>" + c + "<br>" + d + "<br>" + e; 
+
+document.querySelector("#demo1").innerHTML = true + "6"; // 5 is treated as a string. Try change 5 to true.
+</script>
+
+</body>
+</html>
+

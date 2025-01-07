@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>AJAX Post</h2>
+<form id="myForm">
+  <label>Name:</label>
+  <div><input type="text" name="name"></div>
+  <br>
+  <button type="button" onclick="post()">Submit</button>
+</form><br>    
+<div id="demo">
+    Content of the result DIV box will be replaced by the server response
+</div>    
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+function post() {
+  if (window.XMLHttpRequest) {
+    xmlhttp = new XMLHttpRequest(); // code for modern browsers
+  } else {
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); // code for old IE browsers
+  }
+  xmlhttp.onreadystatechange = function() {
+  	if (this.readyState == 1) 
+      document.getElementById("demo").innerHTML = "<img src='ajax.gif'>";
+    if (this.readyState == 4 && this.status == 200) {
+    	document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  var myForm = document.getElementById("myForm");
+  var formData = new FormData(myForm);
+  
+  xmlhttp.open("POST", "demo.php");
+  xmlhttp.send(formData);
+}
+
+</script>

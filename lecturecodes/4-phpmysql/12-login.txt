@@ -1,0 +1,55 @@
+<?php
+if (isset($_POST['login'])) {
+
+    $servername = "lrgs.ftsm.ukm.my";
+    $username = "a123456";
+    $password = "a123456";
+    $database = "a123456";
+
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        // normal query (no prepared stmt)
+        $sql = "SELECT * FROM login WHERE username = '".$_POST['username']."' AND password = '".$_POST['password']."'";
+        $stmt = $conn->query($sql);
+        
+        // prepared stmt
+        // $stmt = $conn->prepare("SELECT * FROM login WHERE username = :id AND password = :pw"); 
+        // $stmt->bindParam(':id', $_POST['username'], PDO::PARAM_STR);
+        // $stmt->bindParam(':pw', $_POST['password'], PDO::PARAM_STR);
+        // $stmt->execute();
+
+        $result = $stmt->fetchAll();
+
+        if (count($result)>0)
+            echo "Success. Hi ".$result[0]['username']."!";
+        else
+            echo "Failed.";
+        die();
+        }
+    catch(PDOException $e)
+        {
+        echo "Error: " . $e->getMessage();
+        }
+    $conn = null;
+}
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+</head>
+<body>
+<form action="#" method="post">
+    <label for="uid">Username:</label>
+    <input type="text" name="username" id="uid"><br>
+    <label for="pwd">Password:</label>
+    <input type="password" name="password" id="pwd"><br>
+    <input type="submit" name="login">
+</form>
+</body>
+</html>

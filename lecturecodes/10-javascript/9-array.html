@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+
+var numbers = [1, "2", 3.7, true, '4'];
+var str = "";
+
+for (i = 0; i < numbers.length; i++) {
+  str = str + numbers[i] + "<br>";
+}
+
+numbers.forEach(function(number, index) {
+    str = str + (index+1) + ": " + number + "<br>";
+});
+
+document.querySelector('#demo').innerHTML = str; 
+
+</script>
+
+</body>
+</html>
+

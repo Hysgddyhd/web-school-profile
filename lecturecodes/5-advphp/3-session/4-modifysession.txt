@@ -1,0 +1,16 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+// to change a session variable, just overwrite it 
+$_SESSION["email"] = "new_email@gmail.com";
+$_SESSION["security"] = "normal";
+print_r($_SESSION);
+?>
+
+</body>
+</html>

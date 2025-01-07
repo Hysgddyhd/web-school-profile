@@ -1,0 +1,22 @@
+<table border="1">
+	<tr>
+		<td>1</td>
+		<td>Volvo</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>2000</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>Toyota</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>Honda</td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td>88.8</td>
+	</tr>
+</table>

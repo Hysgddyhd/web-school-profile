@@ -1,0 +1,28 @@
+<?php
+
+//sql login statement
+
+setcookie("username", "Faidzul", time() + (86400 * 30)); // 86400 seconds = 1 day
+setcookie("email", "mfn@ukm.edu.my", time() + (24 * 60 * 60 * 30)); // 24 hours * 60 minutes * 60 seconds
+setcookie("security", "admin", time() + (86400 * 30));
+
+if(!count($_COOKIE) > 0) {
+  echo "Cookies are disabled.";
+  die();
+}
+
+?>
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+// Display cookie
+
+echo "Session variables are set. Refresh the page.<br><br>";
+echo "Hello ".$_COOKIE["username"];
+
+?>
+
+</body>
+</html>

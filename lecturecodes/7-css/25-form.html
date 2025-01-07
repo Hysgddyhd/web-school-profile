@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+input[type=text] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+#fname:focus {
+    background-color: lightblue;
+}
+#lname:focus {
+    border: 3px solid #555;
+}
+
+</style>
+</head>
+<body>
+
+<p>Padded text fields:</p>
+
+<form>
+  <label for="fname">First Name</label>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last Name</label>
+  <input type="text" id="lname" name="lname">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?php
+
+$json = file_get_contents('http://lrgs.ftsm.ukm.my/lecturecodes/lecture10/week13lab/myguestbook_api/guestbooks/');
+$record = json_decode($json);
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax Example</title>
+</head>
+<body>
+
+<h1>PHP Grab JSON</h1>
+<table border="1">
+<?php for($x=0; $x<count($record); $x++) { ?>
+	<tr>
+		<td><?php echo $x+1; ?>.</td>
+		<td><?php echo $record[$x]->id; ?></td>
+		<td><?php echo $record[$x]->user; ?></td>
+		<td><?php echo $record[$x]->email; ?></td>
+		<td><?php echo $record[$x]->postdate; ?></td>
+		<td><?php echo $record[$x]->posttime; ?></td>
+		<td><?php echo $record[$x]->comment; ?></td>
+	</tr>
+<?php } ?>
+</table>
+</body>
+
+</html>

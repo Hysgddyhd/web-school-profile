@@ -1,0 +1,38 @@
+<?php 
+$txt = "lorry"; 
+$one = 1;
+$two = 2;
+$three = 3;
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<style type="text/css">
+	body {
+		font-size: 30px;
+	}
+</style>
+</head>
+<body>
+
+<p><?php echo "$one: Red $txt, yellow $txt"; ?></p>
+<p><?php echo "$two: Red " . $txt . ", yellow " . $txt; ?></p>
+<p><?php echo "$three: Red ", $txt, ", yellow ", $txt; ?></p> 
+
+<p><?php print "$one: Red $txt, yellow $txt"; ?></p>
+<p><?php print "$two: Red ".$txt.", yellow ".$txt; ?></p>
+
+<p><?php echo "$one+$two"; ?></p>
+<p><?php echo $one+$two; ?></p>
+
+<p><?php echo '$one: Red $txt, yellow $txt'; ?></p>
+
+</body>
+</html>
+<!--
+print cant use comma to join text
+variable can't be displayed in single quoted text
+
+-->

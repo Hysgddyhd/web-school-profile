@@ -1,0 +1,28 @@
+<?php
+
+$mycolor = "black"; // Global Variable
+$yourcolor = "white"; // Global Variable
+
+function doSomething()  
+{  
+    global $mycolor; // Local variable access global variable (local variable name should be the same as the global one)
+    static $count = 1;
+
+    echo "$count : Variable inside function : ". $mycolor;
+    $mycolor = "#000000";
+    $count++;
+    echo "</br>";
+
+    echo "$count : Variable inside function : ". $GLOBALS['yourcolor'];  
+    $count++;
+    echo "</br>";  
+}  
+
+doSomething();  
+echo "Variable outside the function: ". $mycolor;
+echo "</br>";
+
+doSomething();  
+echo "Variable outside the function: ". $mycolor;  
+echo "</br>";
+?>  

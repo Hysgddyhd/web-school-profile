@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        $("#p1").fadeToggle(2500)
+    });
+    $("#btn2").click(function(){
+        $("#p2").fadeToggle("slow");
+    });
+    $("#btn3").click(function(){
+        $("#p3").fadeToggle("fast");
+    });
+});
+</script>
+</head>
+<body>
+
+<button id="btn1">fadeToggle() milliseconds</button>
+<button id="btn2">fadeToggle() slow</button>
+<button id="btn3">fadeToggle() fast</button>
+
+<p id="p1">This is a paragraph that takes 2500 milliseconds to fade out and in.</p>
+<p id="p2">This is a slow paragraph.</p>
+<p id="p3">This is a fast paragraph.</p>
+
+</body>
+</html>

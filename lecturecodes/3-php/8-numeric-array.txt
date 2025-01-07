@@ -1,0 +1,22 @@
+<?php 
+
+$cars = array("Volvo", 2000, "Toyota", "Honda", 88.8);
+$arrlength = count($cars);
+
+?>
+<table border="1">
+<?php for($x=0; $x<$arrlength; $x++) { ?>
+	<tr>
+		<td><?php echo ($x+1) ?></td>
+		<td><?php echo $cars[$x] ?></td>
+	</tr>
+<?php } ?>
+</table>
+<?php 
+// foreach ($cars as $index => $value) {
+//   echo "<tr>";
+//   echo "<td>".($index+1)."</td>";
+//   echo "<td>".$value."</td>";
+//   echo "<tr>";
+// }
+?>

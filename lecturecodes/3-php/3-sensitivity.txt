@@ -1,0 +1,18 @@
+<?php $color = "red"; ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sensitivity</title>
+</head>
+<style type="text/css">
+	body {
+		font-size: 30px;
+	}
+</style>
+<body>
+<p><?php echo "My car is $color"; ?></p>
+<p><?php ECHO "My car is $COLOR"; ?></p>
+<p><?php eCHo "My car is $coLOR"; ?></p>
+</body>
+</html>
