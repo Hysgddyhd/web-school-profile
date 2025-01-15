@@ -23,8 +23,8 @@
       <input name="gender" type="radio" value="Female"> Female <br>
       Phone Number
       <input name="phone" type="text"> <br>
-      Email Address
-      <input name="email" type="text"> <br>
+      Residence Address
+      <input name="residence" type="text"> <br>
       <button type="submit" name="create">Create</button>
       <button type="reset">Clear</button>
     </form>
@@ -36,7 +36,7 @@
         <td>Last Name</td>
         <td>Gender</td>
         <td>Phone Number</td>
-        <td>Email Address</td>
+        <td>Residence Address</td>
         <td></td>
       </tr>
       <tr>
@@ -45,7 +45,7 @@
         <td>Bay</td>
         <td>Male</td>
         <td>013-3922010</td>
-        <td>larry.bay@bike.com</td>
+        <td>UKM</td>
         <td>
           <a href="staffs.php">Edit</a>
           <a href="staffs.php">Delete</a>
@@ -57,7 +57,7 @@
         <td>Martin</td>
         <td>Male</td>
         <td>019-8321266</td>
-        <td>james.martin@bike.com</td>
+        <td>Bangi</td>
         <td>
           <a href="staffs.php">Edit</a>
           <a href="staffs.php">Delete</a>

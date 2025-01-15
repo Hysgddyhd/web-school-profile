@@ -30,16 +30,18 @@
     </form>
     <hr>
     <table border="1">
-      <tr>
+      <thead>
         <td>Order Detail ID</td>
         <td>Product</td>
         <td>Quantity</td>
+        <td>Subtotal(RM)</td>
         <td></td>
-      </tr>
+      </thead>
       <tr>
         <td>D5603f136f41334.84833440</td>
         <td>Concours 14 Abs</td>
         <td>1</td>
+        <td>20</td>
         <td>
           <a href="orders_details.php">Delete</a>
         </td>
@@ -48,6 +50,7 @@
         <td>O5603f03a9349f0.39900158</td>
         <td>Versys 650 Lt</td>
         <td>2</td>
+        <td>30</td>
         <td>
           <a href="orders_details.php">Delete</a>
         </td>
