@@ -32,8 +32,8 @@
           }
      ?>
     Order Date: <?php echo $readRow["fld_order_date"]; ?> <br>
-    Staff: <?php echo $readRow["fld_staff_fname"].$readRow["fld_staff_lname"]; ?> <br>
-    Customer: <?php echo $readRow["fld_customer_fname"].$readRow["fld_customer_lname"]; ?> <br>
+    Staff: <?php echo $readRow["fld_staff_fname"]." ".$readRow["fld_staff_lname"]; ?> <br>
+    Customer: <?php echo $readRow["fld_customer_fname"]." ".$readRow["fld_customer_lname"]; ?> <br>
     <?php $conn= null; ?>
     <hr>
     <form action="orders_details.php" method="post">

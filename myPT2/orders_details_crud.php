@@ -6,9 +6,7 @@ $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
 //Create
-
-if ((isset($_GET["oid"]))) {
-  if (isset($_POST['addproduct'])) {
+if (isset($_POST['addproduct'])) {
  
   try {
  
@@ -37,29 +35,25 @@ if ((isset($_GET["oid"]))) {
 }
  
 //Delete
-  if (isset($_GET['delete'])) {
+if (isset($_GET['delete'])) {
+ 
+  try {
+ 
+    $stmt = $conn->prepare("DELETE FROM tbl_orders_details_a123456 where fld_order_detail_num = :did");
    
-    try {
-   
-      $stmt = $conn->prepare("DELETE FROM tbl_orders_details_a123456 where fld_order_detail_num = :did");
-     
-      $stmt->bindParam(':did', $did, PDO::PARAM_STR);
-         
-      $did = $_GET['delete'];
+    $stmt->bindParam(':did', $did, PDO::PARAM_STR);
        
-      $stmt->execute();
-   
-      header("Location: orders_details.php?oid=".$_GET['oid']);
-      }
-   
-    catch(PDOException $e)
-    {
-        echo "Error: " . $e->getMessage();
+    $did = $_GET['delete'];
+     
+    $stmt->execute();
+ 
+    header("Location: orders_details.php?oid=".$_GET['oid']);
     }
+ 
+  catch(PDOException $e)
+  {
+      echo "Error: " . $e->getMessage();
   }
-}else {
-  echo "no oid error"."<br>";
-  echo "<button><a href='index.php' target='_self'>return</a></button>";
 }
  
 ?>

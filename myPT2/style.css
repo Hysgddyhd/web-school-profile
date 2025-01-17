@@ -1,0 +1,25 @@
+thead {
+	color: blue;
+	border: dashed darkgoldenrod 2px;
+
+	
+}
+
+table {
+	font-family: sans-serif ;
+	font-size: 18px;
+	text-align: center;
+	width: 40%;
+}
+
+img {
+	position: relative;
+	max-width: 40%;
+}
+
+div p {
+	color: darkcyan;
+	font-size: 28px;
+	font-family: monospace;
+	font-style: italic;
+}
