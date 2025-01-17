@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Bike Ordering System : Products</title>
+  <title>Ordering System : Products</title>
 </head>
 <body>
   <center>
@@ -59,10 +59,13 @@
         <td>Kawasaki</td>
         <td>study</td>
         <td>Wooden Base</td>
-        <td colspan="2">Use 15% brightness as a bedroom night light for a restful sleep.
-    Switch to 60% brightness for a comfortable study desk lamp.
-    Use 100% brightness as a living room table lamp for family gatherings.</td>
+        <td>Use 15% brightness as a bedroom night light for a restful sleep.</td>
         <td>4</td>
+        <td>
+          <a href="products_details.php">Details</a>
+          <a href="products.php">Edit</a>
+          <a href="products.php">Delete</a>
+        </td>
       </tr>
     </table>
   </center>

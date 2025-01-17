@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Bike Ordering System : Order Details</title>
+  <title>Ordering System : Order Details</title>
 </head>
 <body>
   <center>

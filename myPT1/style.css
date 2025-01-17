@@ -14,7 +14,8 @@ table {
 
 img {
 	position: relative;
-	max-width: 40%;
+	max-width: 20%;
+	max-height: 15%;
 }
 
 div p {
@@ -22,4 +23,11 @@ div p {
 	font-size: 28px;
 	font-family: monospace;
 	font-style: italic;
+}
+
+button {
+	background: 	lightblue	;
+	color: 	yellow	;
+	font-family: 	24px;
+	border: 	solid black	2px;
 }

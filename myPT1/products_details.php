@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Bike Ordering System : Products Details</title>
+  <title>Ordering System : Products Details</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <center>
