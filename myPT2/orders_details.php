@@ -1,65 +1,109 @@
-<?php
- //only create and delete
-include_once 'database.php';
- 
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- 
-//Create
-
-if ((isset($_GET["oid"]))) {
-  if (isset($_POST['addproduct'])) {
- 
-  try {
- 
-    $stmt = $conn->prepare("INSERT INTO tbl_orders_details_a123456(fld_order_detail_num,
-      fld_order_num, fld_product_num, fld_order_detail_quantity) VALUES(:did, :oid,
-      :pid, :quantity)");
-   //initial parameters
-    $stmt->bindParam(':did', $did, PDO::PARAM_STR);
-    $stmt->bindParam(':oid', $oid, PDO::PARAM_STR);
-    $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
-    $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
-       
-    $did = uniqid('D', true);
-    $oid = $_POST['oid'];
-    $pid = $_POST['pid'];
-    $quantity= $_POST['quantity'];
-     
-    $stmt->execute();
-    }
- 
-  catch(PDOException $e)
-  {
-      echo "Error: " . $e->getMessage();
-  }
-  $_GET['oid'] = $oid;
-}
- 
-//Delete
-  if (isset($_GET['delete'])) {
-   
-    try {
-   
-      $stmt = $conn->prepare("DELETE FROM tbl_orders_details_a123456 where fld_order_detail_num = :did");
-     
-      $stmt->bindParam(':did', $did, PDO::PARAM_STR);
-         
-      $did = $_GET['delete'];
-       
-      $stmt->execute();
-   
-      header("Location: orders_details.php?oid=".$_GET['oid']);
-      }
-   
-    catch(PDOException $e)
-    {
-        echo "Error: " . $e->getMessage();
-    }
-  }
-}else {
-  echo "no oid error"."<br>";
-  echo "<button><a href='index.php' target='_self'>return</a></button>";
-}
- 
-?>
+<?php 
+  include_once("orders_details_crud.php");
+ ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Bike Ordering System : Order Details</title>
+</head>
+<body>
+  <center>
+    <a href="index.php">Home</a> |
+    <a href="products.php">Products</a> |
+    <a href="customers.php">Customers</a> |
+    <a href="staffs.php">Staffs</a> |
+    <a href="orders.php">Orders</a>
+    <hr>
+    Order ID: <?php echo $_GET['oid']; ?><br>
+    <?php 
+      try{
+            $conn=new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            $stmt=$conn->prepare("SELECT * FROM tbl_orders_a197547,tbl_staffs_a197547_pt2,tbl_customers_a197547_pt2 
+              WHERE tbl_orders_a197547.fld_order_num=:oid and 
+              tbl_orders_a197547.fld_staff_num=tbl_staffs_a197547_pt2.fld_staff_num 
+              and tbl_orders_a197547.fld_customer_num=tbl_customers_a197547_pt2.fld_customer_num; ");
+            $stmt->bindParam(":oid",$_GET['oid'],PDO::PARAM_STR);
+            $stmt->execute();
+            $readRow=$stmt->fetch(PDO::FETCH_ASSOC);
+          }
+          catch(PDOException $e) {
+              echo $e;
+          }
+     ?>
+    Order Date: <?php echo $readRow["fld_order_date"]; ?> <br>
+    Staff: <?php echo $readRow["fld_staff_fname"]." ".$readRow["fld_staff_lname"]; ?> <br>
+    Customer: <?php echo $readRow["fld_customer_fname"]." ".$readRow["fld_customer_lname"]; ?> <br>
+    <?php $conn= null; ?>
+    <hr>
+    <form action="orders_details.php" method="post">
+      Product
+      <select name="pid">
+        <?php 
+            try{$conn=new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
+              $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+              $stmt=$conn->prepare("SELECT * FROM tbl_products_a197547_pt2");
+              $stmt->execute();
+              $result=$stmt->fetchAll();
+              //var_dump($result);
+            }
+            catch(PDOException $e) {
+                echo $e;
+              }
+              foreach ($result as $item){
+         ?>
+         <option  value="<?php echo $item["fld_product_num"]; ?>"><?php echo $item["fld_product_brand"]." ".$item["fld_product_name"]; ?></option>
+         <?php 
+            }
+            $conn=null;
+          ?>
+      </select>
+      Quantity
+      <input name="quantity" type="text">
+      <input type="hidden" name="oid" value="<?php echo $readRow['fld_order_num'] ?>">
+      <button type="submit" name="addproduct">Add Product</button>
+      <button type="reset">Clear</button>
+    </form>
+    <hr>
+    <table border="1">
+      <tr>
+        <td>Order Detail ID</td>
+        <td>Product</td>
+        <td>Quantity</td>
+        <td></td>
+      </tr>
+      <?php 
+        try{
+          $conn=new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            $stmt=$conn->prepare("SELECT * FROM tbl_orders_a197547,tbl_orders_details_a197547,tbl_products_a197547_pt2 WHERE tbl_orders_a197547.fld_order_num=:oid and 
+              tbl_orders_details_a197547.fld_order_num=tbl_orders_a197547.fld_order_num and 
+              tbl_orders_details_a197547.fld_product_num=tbl_products_a197547_pt2.fld_product_num;  ");
+            $stmt->bindParam(":oid",$_GET['oid'],PDO::PARAM_STR);
+            $stmt->execute();
+            $result=$stmt->fetchAll();
+            //var_dump($result);
+          }
+          catch(PDOException $e) {
+              echo $e;
+          }
+          foreach ($result as $item){
+       ?>
+      <tr>
+        <td><?php echo $item['fld_order_detail_num']; ?></td>
+        <td><?php echo $item["fld_product_name"] ?></td>
+        <td><?php echo $item["fld_order_detail_quantity"] ?></td>
+        <td>
+          <a href="orders_details.php?delete=<?php echo $item['fld_order_detail_num'] ?>&oid=<?php echo $_GET['oid']; ?>">Delete</a>
+        </td>
+      </tr>
+      <?php 
+        }
+        $conn=null;
+       ?>
+    </table>
+    <hr>
+    <a href="invoice.php?oid=<?php echo $_GET["oid"]; ?>" target="_blank">Generate Invoice</a>
+  </center>
+</body>
+</html>

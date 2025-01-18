@@ -19,7 +19,7 @@
       Brand
       <input name="brand" type="text"> <br>
       Price
-      <input name="price" type="range" value="12" min="1" max="200" pace="2.5" oninput="this.nextElementSibling.value=this.value"> <output>12</output><br>
+      <input name="price" type="range" value="12" min="1" max="700" pace="2.5" oninput="this.nextElementSibling.value=this.value+'RM'"> <output>40 RM</output><br>
       room_position
       <select name="room_position" >
         <option value="lobby">lobby</option>
@@ -49,14 +49,15 @@
         <td>Price</td>
         <td>room_position</td>
         <td>material</td>
-        <td>specifity</td><td>______________</td>
+        <td>specifity</td>
         <td>quantity</td>
+        <td></td>
       </thead>
       <tr>
         <td>P001</td>
         <td>Bedside Table Lamp for Bedroom</td>
         <td>Fenmzee</td>
-        <td>Kawasaki</td>
+        <td>20</td>
         <td>study</td>
         <td>Wooden Base</td>
         <td>Use 15% brightness as a bedroom night light for a restful sleep.</td>

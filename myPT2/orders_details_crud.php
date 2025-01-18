@@ -10,7 +10,7 @@ if (isset($_POST['addproduct'])) {
  
   try {
  
-    $stmt = $conn->prepare("INSERT INTO tbl_orders_details_a123456(fld_order_detail_num,
+    $stmt = $conn->prepare("INSERT INTO tbl_orders_details_a197547(fld_order_detail_num,
       fld_order_num, fld_product_num, fld_order_detail_quantity) VALUES(:did, :oid,
       :pid, :quantity)");
    //initial parameters
@@ -39,7 +39,7 @@ if (isset($_GET['delete'])) {
  
   try {
  
-    $stmt = $conn->prepare("DELETE FROM tbl_orders_details_a123456 where fld_order_detail_num = :did");
+    $stmt = $conn->prepare("DELETE FROM tbl_orders_details_a197547 where fld_order_detail_num = :did");
    
     $stmt->bindParam(':did', $did, PDO::PARAM_STR);
        

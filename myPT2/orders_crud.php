@@ -10,7 +10,7 @@ if (isset($_POST['create'])) {
  
   try {
  //prepare sql statement
-    $stmt = $conn->prepare("INSERT INTO tbl_orders_a123456(fld_order_num, fld_staff_num,
+    $stmt = $conn->prepare("INSERT INTO tbl_orders_a197547(fld_order_num, fld_staff_num,
       fld_customer_num) VALUES(:oid, :sid, :cid)");
    
     $stmt->bindParam(':oid', $oid, PDO::PARAM_STR);
@@ -35,7 +35,7 @@ if (isset($_POST['update'])) {
    
   try {
  
-    $stmt = $conn->prepare("UPDATE tbl_orders_a123456 SET fld_staff_num = :sid,
+    $stmt = $conn->prepare("UPDATE tbl_orders_a197547 SET fld_staff_num = :sid,
       fld_customer_num = :cid WHERE fld_order_num = :oid");
    
     $stmt->bindParam(':oid', $oid, PDO::PARAM_STR);
@@ -62,7 +62,7 @@ if (isset($_GET['delete'])) {
  
   try {
  
-    $stmt = $conn->prepare("DELETE FROM tbl_orders_a123456 WHERE fld_order_num = :oid");
+    $stmt = $conn->prepare("DELETE FROM tbl_orders_a197547 WHERE fld_order_num = :oid");
    
     $stmt->bindParam(':oid', $oid, PDO::PARAM_STR);
        
@@ -84,7 +84,7 @@ if (isset($_GET['edit'])) {
    
     try {
  
-    $stmt = $conn->prepare("SELECT * FROM tbl_orders_a123456 WHERE fld_order_num = :oid");
+    $stmt = $conn->prepare("SELECT * FROM tbl_orders_a197547 WHERE fld_order_num = :oid");
    
     $stmt->bindParam(':oid', $oid, PDO::PARAM_STR);
        

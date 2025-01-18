@@ -24,7 +24,7 @@
         try {
           $conn=new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
           $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-          $stmt=$conn->prepare("select fld_staff_num,fld_staff_fname,fld_staff_lname from tbl_staffs_a123456");
+          $stmt=$conn->prepare("select fld_staff_num,fld_staff_fname,fld_staff_lname from tbl_staffs_a197547_pt2");
           $stmt->execute(); 
           $result=$stmt->fetchAll();
         } catch (PDOException $e) {
@@ -44,7 +44,7 @@
           try {
             $conn=new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            $stmt=$conn->prepare("select fld_customer_num,fld_customer_fname,fld_customer_lname from tbl_customers_a123456");
+            $stmt=$conn->prepare("select fld_customer_num,fld_customer_fname,fld_customer_lname from tbl_customers_a197547_pt2");
             $stmt->execute(); 
             $result=$stmt->fetchAll();
           } catch (PDOException $e) {
@@ -77,7 +77,7 @@
            try {
             $conn=new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            $stmt=$conn->prepare("select * from tbl_orders_a123456");
+            $stmt=$conn->prepare("select * from tbl_orders_a197547");
             $stmt->execute(); 
             $result=$stmt->fetchAll();
           } catch (PDOException $e) {

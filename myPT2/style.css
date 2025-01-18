@@ -16,6 +16,8 @@ img {
 	position: relative;
 	max-width: 20%;
 	max-height: 15%;
+	padding: 3px;
+	border: solid black 2px;
 }
 
 div p {

@@ -5,26 +5,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Bike Ordering System : Invoice</title>
+  <title>Decent Lamp Ordering System : Invoice</title>
 </head>
 <body>
   <center>
-    My Bike Sdn. Bhd. <br>
-    Address 1 <br>
-    Address 2 <br>
-    Postcode <br>
-    State <br>
+    Decent Lamp Sdn. Bhd. <br>
+    Selangor <br>
+    Bangi <br>
+    43650 <br>
     <hr>
     <?php
     try {
       $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $stmt = $conn->prepare("SELECT * FROM tbl_orders_a123456, tbl_staffs_a123456,
-        tbl_customers_a123456, tbl_orders_details_a123456 WHERE
-        tbl_orders_a123456.fld_staff_num = tbl_staffs_a123456.fld_staff_num AND
-        tbl_orders_a123456.fld_customer_num = tbl_customers_a123456.fld_customer_num AND
-        tbl_orders_a123456.fld_order_num = tbl_orders_details_a123456.fld_order_num AND
-        tbl_orders_a123456.fld_order_num = :oid");
+      $stmt = $conn->prepare("SELECT * FROM tbl_orders_a197547, tbl_staffs_a197547_pt2,
+        tbl_customers_a197547_pt2, tbl_orders_details_a197547 WHERE
+        tbl_orders_a197547.fld_staff_num = tbl_staffs_a197547_pt2.fld_staff_num AND
+        tbl_orders_a197547.fld_customer_num = tbl_customers_a197547_pt2.fld_customer_num AND
+        tbl_orders_a197547.fld_order_num = tbl_orders_details_a197547.fld_order_num AND
+        tbl_orders_a197547.fld_order_num = :oid");
       $stmt->bindParam(':oid', $oid, PDO::PARAM_STR);
       $oid = $_GET['oid'];
       $stmt->execute();
@@ -56,9 +55,9 @@
       try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          $stmt = $conn->prepare("SELECT * FROM tbl_orders_details_a123456,
-            tbl_products_a123456 where 
-            tbl_orders_details_a123456.fld_product_num = tbl_products_a123456.fld_product_num AND
+          $stmt = $conn->prepare("SELECT * FROM tbl_orders_details_a197547,
+            tbl_products_a197547_pt2 where 
+            tbl_orders_details_a197547.fld_product_num = tbl_products_a197547_pt2.fld_product_num AND
             fld_order_num = :oid");
         $stmt->bindParam(':oid', $oid, PDO::PARAM_STR);
           $oid = $_GET['oid'];

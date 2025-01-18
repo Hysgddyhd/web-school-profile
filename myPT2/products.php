@@ -1,5 +1,7 @@
 <?php  
-  include_once 'products_crud.php'
+  include_once 'products_crud.php';
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,27 +18,43 @@
     <hr>
     <form action="products.php" method="post">
       Product ID
-      <input name="pid" type="text" value="<?php if(isset($_GET['edit'])) echo $editrow['fld_product_num']; ?>"> <br>      Name
-      <input name="name" type="text" value="<?php if(isset($_GET['edit'])) echo $editrow['fld_product_name']; ?>"> <br>      Price
-      <input name="price" type="text" value="<?php if(isset($_GET['edit'])) echo $editrow['fld_product_price']; ?>"> <br>      Brand
+      <input name="pid" type="text" value="<?php if(isset($_GET['edit'])) echo $editRow['fld_product_num']; ?>"> <br>      Name
+      <input name="name" type="text" value="<?php if(isset($_GET['edit'])) echo $editRow['fld_product_name']; ?>"> <br>      Brand
       <select name="brand">
-        <option value="Kawasaki" <?php if(isset($_GET['edit'])) if($editrow['fld_product_brand']=="Kawasaki") echo "selected"; ?>>Kawasaki</option>
-        <option value="Honda" <?php if(isset($_GET['edit'])) if($editrow['fld_product_brand']=="Honda") echo "selected"; ?>>Honda</option>
-        <option value="Suzuki" <?php if(isset($_GET['edit'])) if($editrow['fld_product_brand']=="Suzuki") echo "selected"; ?>>Suzuki</option>
+        <?php 
+          $brand_list=array("Fenmzee","G Keni","  CHLORANTHUS","Nintiue","Kakanuo","EDISHINE","Nourison","Zafferano","OORUN");
+          foreach ($brand_list as $brand){
+         ?>
+         <!--show all brand in products-->
+         <option <?php echo 'value="'.$brand.'"'; if (isset($_GET['edit'])) {
+           if($editRow['fld_product_brand']==$brand)
+            echo "selected";
+         }?> ><?php echo $brand ?></option>
+         <?php 
+          }
+          $stmt=null;
+          ?>
       </select> <br>
-      Condition
-      <input name="cond" type="radio" value="New" <?php if(isset($_GET['edit'])) if($editrow['fld_product_condition']=="New") echo "checked"; ?>> New
-      <input name="cond" type="radio" value="Used" <?php if(isset($_GET['edit'])) if($editrow['fld_product_condition']=="Used") echo "checked"; ?>> Used <br>
-      Manufacturing Year
-      <select name="year">
-        <option value="2013" <?php if(isset($_GET['edit'])) if($editrow['fld_product_year']=="2013") echo "selected"; ?>>2013</option>
-        <option value="2014" <?php if(isset($_GET['edit'])) if($editrow['fld_product_year']=="2014") echo "selected"; ?>>2014</option>
-        <option value="2015" <?php if(isset($_GET['edit'])) if($editrow['fld_product_year']=="2015") echo "selected"; ?>>2015</option>
-      </select> <br>
+            Price
+      <input name="price" type="text" value="<?php if(isset($_GET['edit'])) echo $editRow['fld_product_price']; ?>"> <br>
+      room_position
+      <select id="room">
+        <option value="lobby">lobby</option>
+        <option value="livingRoom">living room</option>
+        <option value="bedroom">bedroom</option>
+        <option value="study">study</option>
+        <option value="bathroom">bathroom</option>
+        <option value="Balcony">balcony</option>
+        <option value="outside">outside</option>
+      </select><u onclick="addPosition()">add</u><input name="position" id="position" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_product_position"] ?>"><br>
+            material
+      <input name="material"  type="text"value="<?php if(isset($_GET['edit'])) echo $editRow['fld_product_material']; ?>"> <br>
+      specialty
+      <textarea name="specialty"><?php if(isset($_GET['edit'])) echo $editRow['fld_product_specialty']; ?></textarea><br>
       Quantity
-      <input name="quantity" type="text" value=<?php   if(isset($_GET['quantity'])) echo $_POST['quantity'];?>> <br>
+      <input name="quantity" type="number" value="<?php if(isset($_GET['edit'])) echo $editRow['fld_product_quantity']; ?>"> <br>
       <?php if (isset($_GET['edit'])) { ?>
-      <input type="hidden" name="oldpid" value="<?php echo $editrow['fld_product_num']; ?>">
+      <input type="hidden" name="oldpid" value="<?php echo $editRow['fld_product_num']; ?>">
       <button type="submit" name="update">Update</button>
       <?php } else { ?> 
       <button type="submit" name="create">Create</button>
@@ -45,19 +63,21 @@
     </form>
     <hr>
     <table border="1">
-      <tr>
+      <thead>
         <td>Product ID</td>
         <td>Name</td>
-        <td>Price</td>
         <td>Brand</td>
+        <td>Price</td>
+        <td>room_position</td>
+        <td>material</td>
+        <td>specialty</td>
+        <td>quantity</td>
         <td></td>
-      </tr>
+      </thead>
       
         <?php  
           try {
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            $stmt=$conn->prepare("SELECT*FROM tbl_products_a123456 order by fld_product_num desc");
+            $stmt=$conn->prepare("SELECT*FROM tbl_products_a197547_pt2 order by fld_product_num desc");
             $stmt->execute();
             $result=$stmt->fetchAll();
           }
@@ -70,8 +90,15 @@
       <tr>
         <td><?php echo $readRow['fld_product_num']; ?></td>
         <td><?php echo $readRow['fld_product_name']; ?></td>
-        <td><?php echo $readRow['fld_product_price']; ?></td>
         <td><?php echo $readRow['fld_product_brand']; ?></td>
+        <td><?php echo $readRow['fld_product_price']; ?></td>
+        <td><?php foreach (explode(';',$readRow['fld_product_position'],-1) as $value) {
+          echo $value.'<br>';
+        }; ?></td>
+        <td><?php echo $readRow['fld_product_material']; ?></td>
+        <td><?php echo explode(';',$readRow['fld_product_specialty'],-1)[0]; ?></td>
+        <td><?php echo $readRow['fld_product_quantity']; ?></td>
+
         <td>
           <a href="products_details.php?pid=<?php echo $readRow['fld_product_num']; ?>">Details</a>
           <a href="products.php?edit=<?php echo $readRow['fld_product_num']; ?>">Edit</a>
@@ -85,4 +112,13 @@
     </table>
   </center>
 </body>
+<script type="text/javascript">
+  function addPosition() {
+    var a = document.getElementById("room");
+  var text = a.options[a.selectedIndex].value;
+  document.getElementById("position").value+=text+";"
+  //window.alert(text)
+
+  }
+</script>
 </html>

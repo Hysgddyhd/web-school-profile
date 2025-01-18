@@ -10,14 +10,14 @@ if (isset($_POST['create'])) {
  
   try {
  
-    $stmt = $conn->prepare("INSERT INTO tbl_staffs_a123456(fld_staff_num, fld_staff_fname, fld_staff_lname,
-      fld_staff_gender, fld_staff_phone, fld_staff_email) VALUES(:sid, :fname, :lname, :gender,
-      :phone, :email)");
+    $stmt = $conn->prepare("INSERT INTO tbl_staffs_a197547_pt2(fld_staff_num, fld_staff_fname, fld_staff_lname,
+      fld_staff_gender,fld_staff_marital, fld_staff_phone, fld_staff_email) VALUES(:sid, :fname, :lname, :gender,:marital,:phone, :email)");
    
     $stmt->bindParam(':sid', $sid, PDO::PARAM_STR);
     $stmt->bindParam(':fname', $fname, PDO::PARAM_STR);
     $stmt->bindParam(':lname', $lname, PDO::PARAM_STR);
     $stmt->bindParam(':gender', $gender, PDO::PARAM_STR);
+    $stmt->bindParam(':marital',$marital,PDO::PARAM_STR);
     $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
        
@@ -25,6 +25,7 @@ if (isset($_POST['create'])) {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $gender =  $_POST['gender'];
+    $marital=$_POST['marital'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
          
@@ -42,9 +43,10 @@ if (isset($_POST['update'])) {
    
   try {
  
-    $stmt = $conn->prepare("UPDATE tbl_staffs_a123456 SET
+    $stmt = $conn->prepare("UPDATE tbl_staffs_a197547_pt2 SET
       fld_staff_num = :sid, fld_staff_fname = :fname,
       fld_staff_lname = :lname, fld_staff_gender = :gender,
+      fld_staff_marital=:marital,
       fld_staff_phone = :phone, fld_staff_email = :email
       WHERE fld_staff_num = :oldsid");
    
@@ -52,6 +54,7 @@ if (isset($_POST['update'])) {
     $stmt->bindParam(':fname', $fname, PDO::PARAM_STR);
     $stmt->bindParam(':lname', $lname, PDO::PARAM_STR);
     $stmt->bindParam(':gender', $gender, PDO::PARAM_STR);
+    $stmt->bindParam(':marital',$marital,PDO::PARAM_STR);
     $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->bindParam(':oldsid', $oldsid, PDO::PARAM_STR);
@@ -60,6 +63,7 @@ if (isset($_POST['update'])) {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $gender = $_POST['gender'];
+    $marital=$_POST['marital'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $oldsid = $_POST['oldsid'];
@@ -80,7 +84,7 @@ if (isset($_GET['delete'])) {
  
   try {
  
-    $stmt = $conn->prepare("DELETE FROM tbl_staffs_a123456 where fld_staff_num = :sid");
+    $stmt = $conn->prepare("DELETE FROM tbl_staffs_a197547_pt2 where fld_staff_num = :sid");
    
     $stmt->bindParam(':sid', $sid, PDO::PARAM_STR);
        
@@ -102,7 +106,7 @@ if (isset($_GET['edit'])) {
    
   try {
  
-    $stmt = $conn->prepare("SELECT * FROM tbl_staffs_a123456 where fld_staff_num = :sid");
+    $stmt = $conn->prepare("SELECT * FROM tbl_staffs_a197547_pt2 where fld_staff_num = :sid");
    
     $stmt->bindParam(':sid', $sid, PDO::PARAM_STR);
        

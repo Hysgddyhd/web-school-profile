@@ -24,6 +24,8 @@
       Gender
       <input name="gender" type="radio" value="Male" <?php if(isset($_GET['edit'])) if(strcmp($editRow['fld_customer_gender'], "Male")==0) echo "checked"; ?>> Male
       <input name="gender" type="radio" value="Female" <?php if(isset($_GET['edit'])) if(strcmp($editRow['fld_customer_gender'], "Female")==0) echo "checked"; ?>> Female <br>
+      Birthday
+      <input type="date" name="birthday" value="<?php if (isset($_GET['edit'])) echo $editRow['fld_customer_birthday'] ?>"><br>
       Phone Number
       <input name="phone" type="text" value='<?php if (isset($_GET['edit'])) echo $editRow['fld_customer_phone'] ?>'> <br>
       <?php if (isset($_GET['edit'])) { ?>
@@ -40,6 +42,7 @@
         <td>First Name</td>
         <td>Last Name</td>
         <td>Gender</td>
+        <td>Birthday</td>
         <td>Phone Number</td>
         <td></td>
       </tr>
@@ -47,7 +50,7 @@
         try {
           $conn=new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
           $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-          $stmt=$conn->prepare("select * from tbl_customers_a123456");
+          $stmt=$conn->prepare("select * from tbl_customers_a197547_pt2");
           $stmt->execute();
           $result=$stmt->fetchAll();
         }
@@ -63,6 +66,7 @@
         <td><?php echo $cus['fld_customer_fname'] ?></td>
         <td><?php echo $cus['fld_customer_lname'] ?></td>
         <td><?php echo $cus['fld_customer_gender'] ?></td>
+        <td><?php echo $cus['fld_customer_birthday']; ?></td>
         <td><?php echo $cus['fld_customer_phone'] ?></td>
         <td>
           <a href="customers.php?edit=<?php echo $cus["fld_customer_num"] ?>">Edit</a>

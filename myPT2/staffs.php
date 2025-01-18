@@ -24,14 +24,19 @@
       Gender
       <input name="gender" type="radio" value="Male" <?php  
       if(isset($_GET['edit']))
-        if (strcmp($editRow["fld_staff_gender"], "Male")==0) {
-                  echo "checked";
-                }?> > Male
+        if (strcmp($editRow["fld_staff_gender"], "Male")==0) { echo "checked"; }?> > Male
       <input name="gender" type="radio" value="Female"<?php  
       if(isset($_GET['edit']))
         if (strcmp($editRow["fld_staff_gender"], "Female")==0) {
                   echo "checked";
                 }?> > Female <br>
+
+      Marital Status
+      <input type="radio" name="marital" value="Divorced" <?php  if(isset($_GET['edit'])) if (strcmp($editRow["fld_staff_marital"], "Divorced")==0) { echo "checked"; }?>>Divorced
+      <input type="radio" name="marital" value="Married" <?php  if(isset($_GET['edit'])) if (strcmp($editRow["fld_staff_marital"], "Married")==0) { echo "checked"; }?>>Married
+      <input type="radio" name="marital" value="Windowed" <?php  if(isset($_GET['edit'])) if (strcmp($editRow["fld_staff_marital"], "Windowed")==0) { echo "checked"; }?>>Windowed
+      <input type="radio" name="marital" value="Single" <?php  if(isset($_GET['edit'])) if (strcmp($editRow["fld_staff_marital"], "Single")==0) { echo "checked"; }?>>Single
+      <br>
       Phone Number
       <input name="phone" type="text"value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_phone"]; ?>" > <br>
       Email Address
@@ -58,7 +63,7 @@
         try {
           $conn=new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
           $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-          $stmt=$conn->prepare("select * from tbl_staffs_a123456");
+          $stmt=$conn->prepare("select * from tbl_staffs_a197547_pt2");
           $stmt->execute();
           $result=$stmt->fetchAll();
         }
