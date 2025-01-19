@@ -118,7 +118,7 @@
         </div>
         <div class="row">
           <div class="col-sm-8 col-sm-offset-4">
-            <input class="form-control" disabled name="position" id="position" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_product_position"] ?>"  required>
+            <input class="form-control"  name="position" id="position" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_product_position"] ?>"  required>
           </div>
         </div>
         <br>
@@ -136,7 +136,7 @@
             <label for="productSpec">specialty</label>
           </div>
           <div class="col-sm-8 " >
-            <textarea class="form-control" id="productSpec" name="specialty" maxlength="255"><?php if(isset($_GET['edit'])) echo $editRow['fld_product_specialty']; ?></textarea required>
+            <textarea class="form-control" id="productSpec" name="specialty" maxlength="255" placeholder="each specialty end with ';'"><?php if(isset($_GET['edit'])) echo $editRow['fld_product_specialty']; ?></textarea required>
           </div>
         </div>
         <br>

@@ -102,7 +102,7 @@
         <div class="row">
           <div class="col-md-4 col-sm-4 col-xs-4">
             <?php if (isset($_GET['edit'])) { ?>
-            <input  type="hidden" name="oldpid" value="<?php echo $editRow['fld_customer_num']; ?>">
+            <input type="hidden" name="oldcid" value="<?php echo $editRow['fld_customer_num']; ?>">
             <button class="btn btn-success" type="submit" name="update">Update</button>
             <?php } else { ?> 
           </div>
@@ -172,7 +172,7 @@
         <td><?php echo $cus['fld_customer_phone'] ?></td>
         <td>
           <div class="btn-group btn-group-xs ">
-            <a type="button" class="btn btn-default btn-sm" href="customers.php?edit=<?php echo $cus["fld_customer_num"] ?>">Edit</a>
+            <a type="button" class="btn btn-default btn-sm" href="customers.php?edit=<?php echo $cus['fld_customer_num'] ?>">Edit</a>
             <a type="button" class="btn btn-warning btn-sm" href="customers.php?delete=<?php echo $cus['fld_customer_num'] ?>" onclick="return confirm('Are you sure to delete?');">Delete</a>
           </div>          
         </td>

@@ -28,7 +28,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown">HR
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="staffs.php">Customer</a></li>
+            <li><a href="customers.php">Customer</a></li>
             <li class="active"><a href="staffs.php">Staff</a></li>
           </ul>
         </li>
@@ -43,41 +43,41 @@
           <h3>Insert New Staff</h3> 
         </div>       
       </div>
-      <form action="products.php" method="post" class="form-horizontal form-group"><br> 
+      <form action="staffs.php" method="post" class="form-horizontal form-group"><br> 
         <div class="row">
           <div class="col-sm-4">
-            <label for="productId">Staff ID</label>
+            <label for="staffId">Staff ID</label>
           </div>
           <div class="col-sm-8">
-            <input class="form-control" id="productId" name="sid" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_num"]; ?>" required> 
+            <input class="form-control" id="staffId" name="sid" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_num"]; ?>" required> 
           </div>    
         </div><br>
           <div class="row">
             <div class="col-sm-4">
-              <label for="productFname">First Name</label>
+              <label for="staffFname">First Name</label>
             </div>
             <div class="col-sm-8">
-              <input class="form-control" id="product" name="fname" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_fname"]; ?>" required> 
+              <input class="form-control" id="staff" name="fname" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_fname"]; ?>" required> 
             </div>    
           </div><br>   
 
           <div class="row">
             <div class="col-sm-4">
-              <label for="productLname">Last Name</label>
+              <label for="staffLname">Last Name</label>
             </div>
             <div class="col-sm-8">
-              <input class="form-control" id="productLname" name="lname" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_lname"]; ?>" required> 
+              <input class="form-control" id="staffLname" name="lname" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_lname"]; ?>" required> 
             </div>    
           </div><br>
 
           <div class="row">
             <div class="col-sm-4">
-              <label for="productGender">Gender</label>
+              <label for="staffGender">Gender</label>
             </div>
             <div class="col-sm-8">
-              <input class="" id="productGender" name="gender" type="radio" value="Male" <?php  
+              <input class="" id="staffGender" name="gender" type="radio" value="Male" <?php  
               if(isset($_GET['edit']))
-                if (strcmp($editRow["fld_staff_gender"], "Male")==0) { echo "checked"; }?> required>Male    <input id="productGender" name="gender" type="radio" value="Female"<?php  
+                if (strcmp($editRow["fld_staff_gender"], "Male")==0) { echo "checked"; }?> required>Male    <input id="staffGender" name="gender" type="radio" value="Female"<?php  
               if(isset($_GET['edit']))
                 if (strcmp($editRow["fld_staff_gender"], "Female")==0) {
                           echo "checked";
@@ -87,10 +87,10 @@
 
           <div class="row">
             <div class="col-sm-4">
-              <label for="product">Marital Status</label>
+              <label for="staff">Marital Status</label>
             </div>
             <div class="col-sm-8">
-              <input class="" id="product" type="radio" name="marital" value="Divorced" <?php  if(isset($_GET['edit'])) if (strcmp($editRow["fld_staff_marital"], "Divorced")==0) { echo "checked"; }?>>Divorced
+              <input class="" id="staff" type="radio" name="marital" value="Divorced" <?php  if(isset($_GET['edit'])) if (strcmp($editRow["fld_staff_marital"], "Divorced")==0) { echo "checked"; }?>>Divorced
               <input type="radio" name="marital" value="Married" <?php  if(isset($_GET['edit'])) if (strcmp($editRow["fld_staff_marital"], "Married")==0) { echo "checked"; }?>>Married
               <input type="radio" name="marital" value="Windowed" <?php  if(isset($_GET['edit'])) if (strcmp($editRow["fld_staff_marital"], "Windowed")==0) { echo "checked"; }?>>Windowed
               <input type="radio" name="marital" value="Single" <?php  if(isset($_GET['edit'])) if (strcmp($editRow["fld_staff_marital"], "Single")==0) { echo "checked"; }?>>Single
@@ -98,25 +98,25 @@
           </div><br>
         <div class="row">
           <div class="col-sm-4">
-            <label for="productPhone">Phone Number</label>
+            <label for="staffPhone">Phone Number</label>
           </div>
           <div class="col-sm-8">
-            <input class="form-control" id="productPhone" name="phone" type="text"value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_phone"]; ?>" required> 
+            <input class="form-control" id="staffPhone" name="phone" type="text"value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_phone"]; ?>" required> 
           </div>    
         </div><br>   
 
         <div class="row">
           <div class="col-sm-4">
-            <label for="productEmail">Email Address</label>
+            <label for="staffEmail">Email Address</label>
           </div>
           <div class="col-sm-8">
-            <input class="form-control" id="productEmail" name="email" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_email"]; ?>" required> 
+            <input class="form-control" id="staffEmail" name="email" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_email"]; ?>" required> 
           </div>    
         </div><br>   
         <div class="row">
           <div class="col-md-4 col-sm-4 col-xs-4">
             <?php if (isset($_GET['edit'])) { ?>
-            <input  type="hidden" name="oldpid" value="<?php echo $editRow['fld_staff_num']; ?>">
+            <input  type="hidden" name="oldsid" value="<?php echo $editRow['fld_staff_num']; ?>">
             <button class="btn btn-success" type="submit" name="update">Update</button>
             <?php } else { ?> 
           </div>
