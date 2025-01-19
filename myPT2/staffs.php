@@ -55,6 +55,7 @@
         <td>First Name</td>
         <td>Last Name</td>
         <td>Gender</td>
+        <td>Marital Status</td>
         <td>Phone Number</td>
         <td>Email Address</td>
         <td></td>
@@ -79,6 +80,7 @@
         <td><?php echo $staff["fld_staff_fname"]; ?></td>
         <td><?php echo $staff["fld_staff_lname"]; ?></td>
         <td><?php echo $staff["fld_staff_gender"]; ?></td>
+        <td><?php echo $staff["fld_staff_marital"]; ?></td>
         <td><?php echo $staff["fld_staff_phone"]; ?></td>
         <td><?php echo $staff["fld_staff_email"]; ?></td>
         <td>

@@ -12,8 +12,8 @@ if (isset($_POST['create'])) {
  //prepare sql statement
       $stmt = $conn->prepare("INSERT INTO tbl_products_a123456(fld_product_num,
         fld_product_name, fld_product_price, fld_product_brand, fld_product_condition,
-        fld_product_year, fld_product_quantity) VALUES(:pid, :name, :price, :brand,
-        :cond, :year, :quantity)");
+        fld_product_year, fld_product_quantity,fld_product_image) VALUES(:pid, :name, :price, :brand,
+        :cond, :year, :quantity,'')");
      //bind all parameters with loacl variable
       $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
       $stmt->bindParam(':name', $name, PDO::PARAM_STR);
