@@ -1,5 +1,8 @@
 <?php 
   include_once("customers_crud.php");
+  if(isset($_GET['error'])){
+    echo "<font color='red'> Operation Failed: Insufficient Permission</font><br>";
+  }
  ?>
 <!DOCTYPE html>
 <html>

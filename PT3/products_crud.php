@@ -1,4 +1,11 @@
 <?php
+session_start();
+if(time()-$_SESSION["login_time_stamp"] >300)  
+    {
+        session_unset();
+        session_destroy();
+        header("Location:account.php");
+    }
  //contain database setup
 include_once 'database.php';
  //pdo connection
@@ -6,7 +13,7 @@ $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
 //Create
-if (isset($_POST['create'])) {
+if (isset($_POST['create'])&&$_SESSION['level']=="admin") {
  
   try {
  //prepare sql statement
@@ -39,10 +46,11 @@ if (isset($_POST['create'])) {
   {
       echo "Error: " . $e->getMessage();
   }
+
 }
  
 //Update
-if (isset($_POST['update'])) {
+if (isset($_POST['update'])&&$_SESSION['level']=="admin") {
  
   try {
  //prepare sql statement
@@ -84,7 +92,7 @@ if (isset($_POST['update'])) {
 }
  
 //Delete
-if (isset($_GET['delete'])) {
+if (isset($_GET['delete'])&&$_SESSION['level']=="admin") {
  
   try {
  //delete sql statement 
@@ -106,7 +114,7 @@ if (isset($_GET['delete'])) {
 }
  
 //Edit
-if (isset($_GET['edit'])) {
+if (isset($_GET['edit'])&&$_SESSION['level']=="admin") {
  
   try {
  
@@ -126,6 +134,17 @@ if (isset($_GET['edit'])) {
       echo "Error: " . $e->getMessage();
   }
 }
- 
+  
   $conn = null;
+  if ($_SESSION['level']=="normal"&&(isset($_GET['update'])||isset($_GET['delete']))) {
+      echo "<font color='red'> Operation Failed: Insufficient Permission</font>";
+      $editRow="";
+  }else if ($_SESSION['level']=="normal"
+    &&(isset($_POST['create'])||isset($_GET['edit']))){
+    $newURL="products.php?error=true";
+    header('Location: '.$newURL);
+  }else if($_SESSION['level']==""){
+     $newURL="index.php?level=none";
+     header('Location: '.$newURL);
+  }
 ?>

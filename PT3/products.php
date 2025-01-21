@@ -1,5 +1,8 @@
 <?php
   include_once 'products_crud.php';
+  if(isset($_GET['error'])){
+    echo "<font color='red'> Operation Failed: Insufficient Permission</font><br>";
+  }
   $conn = new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
   $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 ?>

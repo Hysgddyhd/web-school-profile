@@ -20,5 +20,12 @@
         </ul>
       </li>
     <li><a href="orders.php">Order</a></li>
+
+    <li class="ml-auto"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user">User</span></a>
+      <ul class="dropdown-menu">
+        <li><a href="account.php"><span class="glyphicon glyphicon-log-in"></span>Log in</a></li>
+        <li><a href="index.php?logout=true"><span class="glyphicon glyphicon glyphicon-log-out"></span>Log out</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>

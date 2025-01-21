@@ -1,4 +1,6 @@
 <?php 
+  session_start();
+  
   include_once("staffs_crud.php");
  ?>
 <!DOCTYPE html>
@@ -112,7 +114,32 @@
           <div class="col-sm-8">
             <input class="form-control" id="staffEmail" name="email" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_email"]; ?>" required> 
           </div>    
+<!--password-->
         </div><br>   
+        <div class="row">
+          <div class="col-sm-4">
+            <label for="staffPass">Password</label>
+          </div>
+          <div class="col-sm-8">
+            <input class="form-control" id="staffPass" name="password" type="password" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_staff_password"]; ?>" required> 
+          </div>    
+        </div><br>
+<!--level-->
+        <div class="row">
+          <div class="col-sm-4">
+            <label for="staffLevel">Level</label>
+          </div>
+          <div class="col-sm-8">
+            <input class="" id="staffLevel" name="level" type="radio" value="normal" <?php  
+            if(isset($_GET['edit']))
+              if (strcmp($editRow["fld_staff_level"], "normal")==0) { echo "checked"; }?> >normal    <input id="staffLevel" name="level" type="radio" value="admin"<?php  
+            if(isset($_GET['edit']))
+              if (strcmp($editRow["fld_staff_level"], "admin")==0) {
+                        echo "checked";
+                }?> > admin
+          </div>    
+        </div><br>
+
         <div class="row">
           <div class="col-md-4 col-sm-4 col-xs-4">
             <?php if (isset($_GET['edit'])) { ?>

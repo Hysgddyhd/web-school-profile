@@ -1,5 +1,12 @@
 <?php
  //only create and delete
+session_start();
+if(time()-$_SESSION["login_time_stamp"] >300)  
+    {
+        session_unset();
+        session_destroy();
+        header("Location:account.php");
+    }
 include_once 'database.php';
  
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -55,5 +62,8 @@ if (isset($_GET['delete'])) {
       echo "Error: " . $e->getMessage();
   }
 }
- 
+ if($_SESSION['level']==""){
+     $newURL="index.php?level=none";
+     header('Location: '.$newURL);
+  }
 ?>

@@ -1,4 +1,9 @@
 <?php  
+  session_start();
+  if($_SESSION['level']==""){
+       $newURL="index.php?level=none";
+       header('Location: '.$newURL);
+  }
   include_once 'database.php';
   $conn = new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
   $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
