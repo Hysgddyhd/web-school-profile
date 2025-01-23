@@ -1,5 +1,5 @@
 <?php
- 
+  session_start();
 include_once 'database.php';
  
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -19,15 +19,18 @@ if (isset($_POST['login'])) {
          
     $stmt->execute();
     $editRow = $stmt->fetch(PDO::FETCH_ASSOC);
-    if (!is_countable($editRow)) {
+    if ($editRow!=null) {
       
       echo "<font color='red'>Wrong Email</font>";
+
     }else if ($editRow["fld_staff_password"]!=$password){
       $editRow=null;
       echo "<font color='red'>Wrong Password</font>";
     }else{
-      $_SESSION["login_time_stamp"] = time();  
+      echo "success login";
     }
+          $_SESSION["login_time_stamp"] = time();  
+
     
     }
  

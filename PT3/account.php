@@ -1,7 +1,12 @@
 <?php
-	session_start();
-	var_dump($_SESSION);
-	include_once "account_crud.php"; 
+	
+	//var_dump($_SESSION);
+	include_once "account_crud.php";
+	 if (isset($_GET['logout'])) {
+		if ($_GET['logout']=="true") {
+			session_unset();
+		}
+	}
  ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +21,7 @@
 <body onload="checkUser()" >
 
 	<?php
-	if (isset($editRow)&&is_countable($editRow)){
+	if (isset($editRow)&&$editRow!=null){
 		print_r($editRow);
 		$_SESSION['sid']=$editRow["fld_staff_num"];
 		$_SESSION['level']=$editRow["fld_staff_level"];
@@ -68,6 +73,7 @@
 				</div>
 				
 			</form>
+			<!--test-->
 			<button onclick="checkUser();">test</button>
 
 		</div>

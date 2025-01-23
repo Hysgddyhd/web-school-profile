@@ -57,7 +57,10 @@ if (isset($_POST['update'])) {
       fld_staff_num = :sid, fld_staff_fname = :fname,
       fld_staff_lname = :lname, fld_staff_gender = :gender,
       fld_staff_marital=:marital,
-      fld_staff_phone = :phone, fld_staff_email = :email
+       fld_staff_phone = :phone,
+        fld_staff_email = :email,
+        fld_staff_password = :password,
+        fld_staff_level = :level 
       WHERE fld_staff_num = :oldsid");
    
     $stmt->bindParam(':sid', $sid, PDO::PARAM_STR);
@@ -67,6 +70,8 @@ if (isset($_POST['update'])) {
     $stmt->bindParam(':marital',$marital,PDO::PARAM_STR);
     $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->bindParam(':password',$password,PDO::PARAM_STR);
+    $stmt->bindParam(":level",$level,PDO::PARAM_STR);
     $stmt->bindParam(':oldsid', $oldsid, PDO::PARAM_STR);
        
     $sid = $_POST['sid'];
@@ -76,8 +81,9 @@ if (isset($_POST['update'])) {
     $marital=$_POST['marital'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
+    $password=$_POST['password'];
+    $level=$_POST['level'];
     $oldsid = $_POST['oldsid'];
-         
     $stmt->execute();
  
     header("Location: staffs.php");

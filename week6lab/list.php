@@ -46,8 +46,7 @@ foreach($result as $row) {
   echo "<input type='submit' value='Upload Image' name='submit'>";
   echo '<input type="hidden" name="id" value="'.$row['id'].'">';
   echo "</form>";
-  }
-  if ($row["picture"] != "") {
+  }else {
     echo "<table>";
     echo "<tr>";
     echo "<td>".'<img src="picture\\'.$row["picture"].'" width="150"><br>'."</td>";

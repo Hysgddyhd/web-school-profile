@@ -1,3 +1,23 @@
+<?php 
+
+
+  session_start();
+
+var_dump($_SESSION);
+
+if(isset($_GET['error'])){
+  echo "<font color='red'> Operation Failed: Insufficient Permission</font><br>";
+}
+if(isset($_GET['level'])){
+  if ($_GET['level']=="none") {
+   header("Location:account.php");
+  }else{
+    echo "<font color='red'>Access blocked: Insufficient Permission</font><br>";
+  }
+}
+include_once "account_crud.php"; 
+
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +59,13 @@
             </ul>
           </li>
         <li><a href="orders.php">Order</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user">User</span>
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="account.php"><span class="glyphicon glyphicon-log-in">log in</a></span></li>
+              <li><a href="account.php?logout=true"><span class="glyphicon glyphicon-log-in">log out</span></a></li>
+          </li>
       </ul>
     </nav>
     <div class="container-fluid">

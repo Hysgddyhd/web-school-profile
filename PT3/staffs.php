@@ -172,6 +172,7 @@
           <td>Marital Status</td>
           <td>Phone Number</td>
           <td>Email Address</td>
+          <td>Level</td>
           <td></td>
         </tr>
       </thead> 
@@ -212,6 +213,7 @@
           <td><?php echo $staff["fld_staff_marital"]; ?></td>
           <td><?php echo $staff["fld_staff_phone"]; ?></td>
           <td><?php echo $staff["fld_staff_email"]; ?></td>
+          <td><?php echo $staff["fld_staff_level"]; ?></td>
           <td>
             <div class="btn-group btn-group-xs ">
               <a type="button" class="btn btn-default btn-sm" href="staffs.php?edit=<?php echo $staff["fld_staff_num"]; ?>">Edit</a>

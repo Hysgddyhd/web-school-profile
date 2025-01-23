@@ -48,7 +48,7 @@
           <h3>Insert New Lamp</h3>  
         </div>       
       </div>
-      <form action="products.php" method="post" class="form-horizontal form-group">
+      <form action="products.php" method="post" class="form-horizontal form-group" enctype="multipart/form-data">
         <br>
         <div class="row">
           <div class="col-sm-4">
@@ -151,6 +151,8 @@
             <input class="form-control" id="productQ" name="quantity" type="number" value="<?php if(isset($_GET['edit'])) echo $editRow['fld_product_quantity']; ?>" required>
           </div>
         </div>
+        <br>
+        
         <br>
         <div class="row">
           <div class="col-md-4 col-sm-4 col-xs-4">

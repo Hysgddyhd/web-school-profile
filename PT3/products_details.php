@@ -8,6 +8,89 @@
   $conn = new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
   $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 ?>
+<?php
+  if (isset($_GET['delete'])) {
+    $target_dir = "products/";
+    $target_file = $target_dir . $_GET['pid'].".png";
+    
+      $url="products_details?pid=".$_GET['pid'];
+      header('Location: ',$url);
+    }
+  if (isset($_POST['pid'])){
+    echo "right source"."<br>";
+    $target_dir = "products/";
+    $target_file = $target_dir . $_GET['pid'].".png";
+    //delete image if delete flag is set
+    
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+   
+    // Check if image file is a actual image or fake image
+    if(isset($_POST["submit"])) {
+      $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+      if($check !== false) {
+        $uploadOk = 1;
+      } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+      }
+    }
+   
+    // Check if file already exists
+    if (file_exists($target_file)) {
+      echo "Sorry, file already exists.";
+      $uploadOk = 0;
+    }
+   
+    // Check file size
+    if ($_FILES["fileToUpload"]["size"] > 500000) {
+      echo "Sorry, your file is too large.";
+      $uploadOk = 0;
+    }
+   
+    // Allow certain file formats
+    if($imageFileType != "png" && $imageFileType != "gif" && $imageFileType != "jpg") {
+      echo "Sorry, only PNG & GIF & JPG files are allowed.";
+      $uploadOk = 0;
+    }
+   
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+      echo "<br>"."Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
+      die();
+    } 
+
+  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+
+      try{
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //update picture path 
+          $stmt = $conn->prepare("UPDATE tbl_products_a197547_pt2 SET fld_product_image =:picture WHERE fld_product_num=:id");
+     
+          // Bind the parameters
+       // $stmt->bindParam(':user', $name, PDO::PARAM_STR);
+
+        $stmt->bindParam(':id',$_POST['pid'],PDO::PARAM_STR);
+        $stmt->bindParam(':picture',$_POST['pid'],PDO::PARAM_STR);
+          
+        $stmt->execute();
+      echo "succes change picture";
+   
+        }
+        catch(PDOException $e)
+        {
+            echo "Error: " . $e->getMessage();
+        }
+
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+
+  }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,7 +193,17 @@
      </tr>
      <tfoot>
        <tr>
-         <td colspan="2"><a role="button" class="btn btn-default" href="products_details.php">Database</a></td>
+         <td><a role="button" class="btn btn-default" href="products_details.php">Database</a></td>
+         <form action="products_details.php?pid=<?php echo $_GET['pid'];  ?>" method="post"  enctype="multipart/form-data">
+           <td>
+              <input class="btn btn-default" type='file' name='fileToUpload' id='fileToUpload' required>
+              <input type="hidden" name="pid" value="<?php echo $_GET['pid']; ?>">
+              <input class="btn btn-success" title="upload image" type="submit" name="upload" value="upload">
+                <button class="btn btn-danger" title="Delete image uploaded" ><a href="products_details.php?pid=<?php echo $_GET['pid']; ?>&delete=<?php if (isset($_GET['pid'])) {
+                  echo "true";
+                } ?>">Delete</a></button>
+           </td>
+         </form>
        </tr>
      </tfoot>
   </table>
