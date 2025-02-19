@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        h1,h2,h3,div{
+            text-align: center;
+        }
+        div{
+            padding: 5px;
+        }
+        input,label,textarea{
+            font-family: Arial,monospace;
+            font-size: 18px;
+            margin: 2px;
+        }
+        button{
+            padding: 5px;
+            margin: 12px;
+        }
+        table{
+            margin: auto;
+            text-align: center;
+            border: 2px black solid;
+        }
+        img{
+            width: 100px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            hideUpdateButtons();
+            list_comments();
+            //submit new comment
+            $("#submit").click(function(){
+                insertComment();
+            });
+            //edit comment
+            //1.open comment to edit
+            $("#comments").on("click",".edit",function(){
+                var id= $(this).val();
+                if ($("#user").val()!==""||$("#email").val()!==""||$("#comment").val()!==""){
+                    if(!confirm("Discard current edit comment?")){
+                        return false;
+                    }
+                }
+                $.ajax({
+                    type: "GET",
+                    cache: false,
+                    url: "https://lrgs.ftsm.ukm.my/users/a197547/week13lab/myguestbook_api/guestbook/id/"+id,
+                    dataType: "json",
+                    beforeSend: function(xhr){
+                        $("#submit,#reset").hide();
+                    },
+                    success: function(response){
+                        $("#user").val(response[0]["user"]);
+                        $("#email").val(response[0]["email"]);
+                        $("#comment").val(response[0]["comment"]);
+                        //set id
+                        // alert(response[0]["id"]);
+                        $("[name=id]").val(response[0]["id"]);
+                        $("#update,#cancel").show();
+                    },
+                    error: function(xhr, status){
+                        alert("Error: "+xhr.status+" "+xhr.responseText);
+                        $("#submit,#reset").show();
+                    }
+                });
+            });
+            //2.update comments
+            $("#update").click(function(){
+                var formDate =$("#myForm").serialize();
+                $.ajax({
+                    type: "PUT",
+                    data: formDate,
+                    url: "https://lrgs.ftsm.ukm.my/users/a197547/week13lab/myguestbook_api/guestbook/id/"+$("[name=id]").val(),
+                    beforeSend: function(xhr){
+                        $("#comments").html("<img src='ajax.gif'>");
+                    },
+                    success: function(response){
+                        resetForm($("#myForm"));
+                        list_comments();
+                        $("#update,#cancel").hide();
+                        $("#submit,#reset").show();
+                    },
+                    error: function(xhr, status){
+                        alert("Error: "+xhr.status+" "+xhr.responseText);
+                    }
+
+
+                })
+            });
+            //3.cancel edit operation
+            $("#cancel").click(function(){
+                if(confirm("Are you sure you want to cancel?")){
+                    resetForm($("#myForm"));
+                    $("#update,#cancel").hide();
+                    $("#submit,#reset").show();
+                }else{
+
+                }
+            });
+            //delete comment
+            $("#comments").on("click",".delete",function(){
+                if(!confirm("Are you sure you want to delete?")){
+                    return false;
+                }
+                $.ajax({
+                    type: "DELETE",
+                    url:"https://lrgs.ftsm.ukm.my/users/a197547/week13lab/myguestbook_api/guestbook/id/"+$(this).val(),
+                    success: function(response){
+                        resetForm($("#myForm"));
+                        list_comments();
+                        $("#update,#cancel").hide();
+                        $("#submit,#reset").show();
+                    },
+                    error: function(xhr, status){
+                        alert("Error: "+xhr.status+" "+xhr.responseText);
+                    }
+                });
+            });
+            $("#reset").click(function(){
+                resetForm($("#myForm"));
+            });
+        });
+        function insertComment(){
+            var formValue = $("#myForm").serialize();
+            $.ajax({
+                type: "POST",
+                data: formValue,
+                dataType: "html",
+                url: "https://lrgs.ftsm.ukm.my/users/a197547/week13lab/myguestbook_api/guestbook/",
+                beforeSend: function(xhr){
+                    $("#comments").html("<img src='ajax.gif'>");
+                },
+                success: function(result,xhr){
+                    list_comments();
+                    resetForm($("#myForm"));
+                },
+                error: function(xhr,status) {
+                    alert("Error: "+xhr.status+" "+xhr.responseText);
+                    list_comments();
+                }
+            })
+        }
+        function list_comments(){
+            $.ajax({
+                type:"GET",
+                cache: false,
+                url:"https://lrgs.ftsm.ukm.my/users/a197547/week13lab/myguestbook_api/guestbooks/",
+                dataType:"json",
+                beforeSend: function(xhr){
+                    $("#comments").html("<img src='ajax.gif'>");
+                },
+                success: function(response){
+                    var textToInsert="";
+                    var id="";
+                    var header='<tr><th>ID</th><th>Name</th><th>Email</th><th>Date</th><th>Time</th><th>Comment</th><th>Img</th></tr>';
+                    $.each(response, function(index, value){
+                        textToInsert+='<tr>';
+                        $.each(value, function(idx, val){
+                            if(idx==="id"){
+                                id=val;
+                            }
+                            if(idx==="picture"){
+                                textToInsert+='<td>'+'<img src="../week6lab/picture/'+val+'" alt="comment image">'+'</td>';
+                            }else{
+                                textToInsert+='<td>'+val+'</td>';
+                            }
+                        });
+                        textToInsert+='<td><button class="edit" value=' + id + '>Edit</button><button class="delete" value=' + id + '>Delete</button></td>';
+                        textToInsert+='</tr>';
+                    });
+                    $("#comments").html('<table>'+header+textToInsert+'</table>');
+                },
+                error: function(xhr) {
+                    alert("Error: "+xhr.status+" "+xhr.responseText);
+                }
+            })
+        }
+        function hideUpdateButtons(){
+            $("#update,#cancel").hide();
+        }
+        function resetForm($form) {
+            $form.find('input:text, input:password, input:file, select, textarea').val('');
+            $form.find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected');
+        }
+    </script>
+    <title>Ajax Guestbook</title>
+</head>
+<body>
+<h2>Manage My guestbook</h2>
+<form id="myForm">
+    <div>
+        <label for="user">User: </label>
+        <input type="text" id="user" name="user" size="10" required>
+    </div>
+    <div>
+        <label for="email">Email: </label>
+        <input type="text" id="email" name="email" required>
+    </div>
+    <div>
+        <label for="comment">Comment: </label>
+        <textarea id="comment" name="comment" rows="5" required></textarea>
+    </div>
+    <input type="hidden" name="id">
+    <div>
+        <input type="button" id="update" value="Update">
+        <input type="button" id="cancel" value="Cancel">
+        <input type="button" id="submit" value="Submit">
+        <input type="reset" id="reset" value="Reset">
+    </div>
+</form>
+
+<h2>List of Comments</h2>
+<div id="comments">
+</div>
+
+</body>
+</html>
