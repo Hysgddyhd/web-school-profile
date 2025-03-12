@@ -1,13 +1,10 @@
 <?php
 include_once 'products_crud.php';
-if(isset($_GET['error'])){
-    echo "<span style=\"color: red; \"> Operation Failed: Insufficient Permission</span><br>";
-}
 $conn = new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
 $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,30 +13,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-default">
-    <ul class="nav nav-tabs">
-        <li >
-            <a href="index.php">Home</a>
-        </li>
-        <li class="dropdown active">
-            <a class="dropdown-toggle" data-toggle="dropdown">Products
-                <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li class="active"><a href="products.php">Add Product</a></li>
-                <li><a href="products_details.php">Database</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown">HR
-                <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="customers.php">Customer</a></li>
-                <li><a href="staffs.php">Staff</a></li>
-            </ul>
-        </li>
-        <li><a href="orders.php">Order</a></li>
-    </ul>
-</nav>
+<?php include_once "nav_bar.php"; ?>
 <div class="container">
     <!--form body-->
     <div class="form-group">
@@ -48,7 +22,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
                 <h3>Insert New Lamp</h3>
             </div>
         </div>
-        <form action="products.php" method="post" class="form-horizontal form-group" enctype="multipart/form-data">
+        <form action="products.php" method="post" class="form-horizontal form-group">
             <br>
             <div class="row">
                 <div class="col-sm-4">
@@ -105,7 +79,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
                     <label for="">Room Position</label>
                 </div>
                 <div class="col-sm-8">
-                    <label for="product_pos"></label><select class=" form-control" id="prouct_pos">
+                    <select class=" form-control" id="prouct_pos">
                         <option value="lobby">lobby</option>
                         <option value="livingRoom">living room</option>
                         <option value="bedroom">bedroom</option>
@@ -121,7 +95,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             </div>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-4">
-                    <label for="position">Position:</label><input class="form-control" name="position" id="position" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_product_position"] ?>" required>
+                    <input class="form-control" disabled name="position" id="position" type="text" value="<?php if (isset($_GET['edit'])) echo $editRow["fld_product_position"] ?>"  required>
                 </div>
             </div>
             <br>
@@ -139,7 +113,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
                     <label for="productSpec">specialty</label>
                 </div>
                 <div class="col-sm-8 " >
-                    <textarea class="form-control" id="productSpec" name="specialty" maxlength="255" placeholder="each specialty end with ';'"><?php if(isset($_GET['edit'])) echo $editRow['fld_product_specialty']; ?></textarea required>
+                    <textarea class="form-control" id="productSpec" name="specialty" maxlength="255"><?php if(isset($_GET['edit'])) echo $editRow['fld_product_specialty']; ?></textarea required>
                 </div>
             </div>
             <br>
@@ -150,18 +124,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
                 <div class="col-sm-8">
                     <input class="form-control" id="productQ" name="quantity" type="number" value="<?php if(isset($_GET['edit'])) echo $editRow['fld_product_quantity']; ?>" required>
                 </div>
-            </div><br>
-            <!-- image for product  -->
-            <div class="row">
-                <div class="col-sm-4">
-                    <label for="product_image">Image</label>
-                </div>
-                <div class="col-sm-8">
-                    <input type="file" class="form-control" id="product_image" name="product_image" value="<?php if(isset($_GET['edit'])) echo $editRow['fld_product_quantity']; ?>" >
-                </div>
             </div>
-            <br>
-
             <br>
             <div class="row">
                 <div class="col-md-4 col-sm-4 col-xs-4">
@@ -181,7 +144,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     <!--table body-->
     <br>
     <div class="col-sm-8 col-sm-offset-4">
-        <h3>Lamp Record</h3>
+        <h3>Lamp Database</h3>
     </div>
     <hr>
     <br>
@@ -192,7 +155,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             <td>Name</td>
             <td>Price(RM)</td>
             <td>Place Position</td>
-            <td>Image</td>
+            <td></td>
         </tr>
         </thead>
         <tbody>
@@ -203,12 +166,12 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             } else {
                 $page=1;
             }
-            $startRow=($page-1)*3;
+            $startRow=($page-1)*5;
             $stmt=$conn->prepare("SELECT*FROM tbl_products_a197547_pt2");
             $stmt->execute();
             $result=$stmt->fetchAll();
-            $maxPage=ceil(count($result)/3);
-            $stmt=$conn->prepare("SELECT*FROM tbl_products_a197547_pt2 order by fld_product_num asc limit $startRow,3");
+            $maxPage=ceil(count($result)/5);
+            $stmt=$conn->prepare("SELECT*FROM tbl_products_a197547_pt2 order by fld_product_num asc limit $startRow,5");
             $stmt->execute();
             $result=$stmt->fetchAll();
         }
@@ -225,17 +188,17 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             <td><?php foreach (explode(';',$readRow['fld_product_position'],-1) as $value) {
                     echo $value.'<br>';
                 }; ?>
+
             </td>
-            <!--image of products -->
+
             <td>
-                <?php
-                    if($readRow['fld_product_image']!==""){
-                        echo $readRow['fld_product_image'];
-                    }else{
-                        echo '<span class="glyphicon glyphicon-picture">';
-                    }
-                ?>
+                <div class="btn-group btn-group-xs ">
+                    <a type="button" class="btn btn-info btn-sm" href="products_details.php?pid=<?php echo $readRow['fld_product_num']; ?>">Details</a>
+                    <a type="button" class="btn btn-default btn-sm" href="products.php?edit=<?php echo $readRow['fld_product_num']; ?>">Edit</a>
+                    <a type="button" class="btn btn-warning btn-sm" href="products.php?delete=<?php echo $readRow['fld_product_num']; ?>" onclick="return confirm('Are you sure to delete?');">Delete</a>
+                </div>
             </td>
+
             <?php
             }
             $conn = null;
@@ -247,13 +210,13 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         </tfoot>
     </table>
     <div class="justify-content-center btn-group">
-        <a role="button" class="btn btn-default <?php if($page==1) echo "disabled"; ?>" href="products.php?page=<?php echo $page-1; ?>">«</a>
+        <a role="button" class="btn btn-default <?php if($page==1) echo "disabled"; ?>" href="products_table_unused.php?page=<?php echo $page-1; ?>">«</a>
         <?php
         for ($i=1; $i <=$maxPage; $i++) {
             ?>
-            <a role="button" class="btn btn-default" href="products.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+            <a role="button" class="btn btn-default" href="products_table_unused.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
         <?php } ?>
-        <a role="button" class="btn btn-default <?php if($page==$maxPage) echo "disabled"; ?>" href="products.php?page=<?php echo $page+1; ?>">»</a>
+        <a role="button" class="btn btn-default <?php if($page==$maxPage) echo "disabled"; ?>" href="products_table_unused.php?page=<?php echo $page+1; ?>">»</a>
     </div>
 </div>
 <hr>

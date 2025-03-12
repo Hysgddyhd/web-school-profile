@@ -1,150 +1,150 @@
 <?php
 session_start();
-if(time()-$_SESSION["login_time_stamp"] >300)  
-    {
-        session_unset();
-        session_destroy();
-        header("Location:account.php");
-    }
- //contain database setup
+if(time()-$_SESSION["login_time_stamp"] >30000)
+{
+    session_unset();
+    session_destroy();
+    header("Location:account.php");
+}
+//contain database setup
 include_once 'database.php';
- //pdo connection
+//pdo connection
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- 
+
 //Create
 if (isset($_POST['create'])&&$_SESSION['level']=="admin") {
- 
-  try {
- //prepare sql statement
-      $stmt = $conn->prepare("INSERT INTO tbl_products_a197547_pt2(fld_product_num,
+
+    try {
+        //prepare sql statement
+        $stmt = $conn->prepare("INSERT INTO tbl_products_a197547_pt2(fld_product_num,
         fld_product_name, fld_product_brand, fld_product_price, fld_product_position, fld_product_material, fld_product_specialty, fld_product_quantity) VALUES(:pid, :name, :brand, :price,
         :position, :material,:specialty, :quantity)");
-     //bind all parameters with loacl variable
-      $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
-      $stmt->bindParam(':name', $name, PDO::PARAM_STR);
-      $stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
-      $stmt->bindParam(':price', $price, PDO::PARAM_STR);
-      $stmt->bindParam(':position', $position, PDO::PARAM_STR);
-      $stmt->bindParam(':material', $material, PDO::PARAM_STR);
-      $stmt->bindParam(':specialty',$specialty,PDO::PARAM_STR);
-      $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
-       //get value from post
-    $pid = $_POST['pid'];
-    $name = $_POST['name'];
-    $brand =  $_POST['brand'];
-    $price = $_POST['price'];
-    $position=$_POST['position'];
-    $material=$_POST["material"];
-    $specialty=$_POST['specialty'];
-    $quantity = $_POST['quantity'];
-     //execute sql statement
-    $stmt->execute();
+        //bind all parameters with loacl variable
+        $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
+        $stmt->bindParam(':price', $price, PDO::PARAM_STR);
+        $stmt->bindParam(':position', $position, PDO::PARAM_STR);
+        $stmt->bindParam(':material', $material, PDO::PARAM_STR);
+        $stmt->bindParam(':specialty',$specialty,PDO::PARAM_STR);
+        $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
+        //get value from post
+        $pid = $_POST['pid'];
+        $name = $_POST['name'];
+        $brand =  $_POST['brand'];
+        $price = $_POST['price'];
+        $position=$_POST['position'];
+        $material=$_POST["material"];
+        $specialty=$_POST['specialty'];
+        $quantity = $_POST['quantity'];
+        //execute sql statement
+        $stmt->execute();
     }
- //indicate error response to ui
-  catch(PDOException $e)
-  {
-      echo "Error: " . $e->getMessage();
-  }
+        //indicate error response to ui
+    catch(PDOException $e)
+    {
+        echo "Error: " . $e->getMessage();
+    }
 
 }
- 
+
 //Update
 if (isset($_POST['update'])&&$_SESSION['level']=="admin") {
- 
-  try {
- //prepare sql statement
-      $stmt = $conn->prepare("UPDATE tbl_products_a197547_pt2 SET fld_product_num = :pid,
+
+    try {
+        //prepare sql statement
+        $stmt = $conn->prepare("UPDATE tbl_products_a197547_pt2 SET fld_product_num = :pid,
         fld_product_name = :name,fld_product_brand = :brand,fld_product_price = :price, 
         fld_product_position = :position, fld_product_material = :material, fld_product_specialty = :specialty,
         fld_product_quantity=:quantity 
         WHERE fld_product_num = :oldpid");
-     
-      $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
-      $stmt->bindParam(':name', $name, PDO::PARAM_STR);
-      $stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
-      $stmt->bindParam(':price', $price, PDO::PARAM_STR);
-      $stmt->bindParam(':position', $position, PDO::PARAM_STR);
-      $stmt->bindParam(':material', $material, PDO::PARAM_STR);
-      $stmt->bindParam(':specialty',$specialty,PDO::PARAM_STR);
-      $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
-      $stmt->bindParam(':oldpid', $oldpid, PDO::PARAM_STR);
-       //get value from post
-    $pid = $_POST['pid'];
-    $name = $_POST['name'];
-    $brand =  $_POST['brand'];
-    $price = $_POST['price'];
-    $position=$_POST['position'];
-    $material=$_POST["material"];
-    $specialty=$_POST['specialty'];
-    $quantity = $_POST['quantity'];
-    $oldpid = $_POST['oldpid'];
-     
-    $stmt->execute();
- 
-    header("Location: products.php");
+
+        $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
+        $stmt->bindParam(':price', $price, PDO::PARAM_STR);
+        $stmt->bindParam(':position', $position, PDO::PARAM_STR);
+        $stmt->bindParam(':material', $material, PDO::PARAM_STR);
+        $stmt->bindParam(':specialty',$specialty,PDO::PARAM_STR);
+        $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
+        $stmt->bindParam(':oldpid', $oldpid, PDO::PARAM_STR);
+        //get value from post
+        $pid = $_POST['pid'];
+        $name = $_POST['name'];
+        $brand =  $_POST['brand'];
+        $price = $_POST['price'];
+        $position=$_POST['position'];
+        $material=$_POST["material"];
+        $specialty=$_POST['specialty'];
+        $quantity = $_POST['quantity'];
+        $oldpid = $_POST['oldpid'];
+
+        $stmt->execute();
+
+        header("Location: products.php");
     }
- 
-  catch(PDOException $e)
-  {
-      echo "Error: " . $e->getMessage();
-  }
+
+    catch(PDOException $e)
+    {
+        echo "Error: " . $e->getMessage();
+    }
 }
- 
+
 //Delete
 if (isset($_GET['delete'])&&$_SESSION['level']=="admin") {
- 
-  try {
- //delete sql statement 
-      $stmt = $conn->prepare("DELETE FROM tbl_products_a197547_pt2 WHERE fld_product_num = :pid");
-     
-      $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
-       
-    $pid = $_GET['delete'];
-     
-    $stmt->execute();
- 
-    header("Location: products.php");
+
+    try {
+        //delete sql statement
+        $stmt = $conn->prepare("DELETE FROM tbl_products_a197547_pt2 WHERE fld_product_num = :pid");
+
+        $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
+
+        $pid = $_GET['delete'];
+
+        $stmt->execute();
+
+        header("Location: products.php");
     }
- 
-  catch(PDOException $e)
-  {
-      echo "Error: " . $e->getMessage();
-  }
+
+    catch(PDOException $e)
+    {
+        echo "Error: " . $e->getMessage();
+    }
 }
- 
+
 //Edit
 if (isset($_GET['edit'])&&$_SESSION['level']=="admin") {
- 
-  try {
- 
-      $stmt = $conn->prepare("SELECT * FROM tbl_products_a197547_pt2 WHERE fld_product_num = :pid");
-     
-      $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
-       
-    $pid = $_GET['edit'];
-     
-    $stmt->execute();
- 
-    $editRow = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    try {
+
+        $stmt = $conn->prepare("SELECT * FROM tbl_products_a197547_pt2 WHERE fld_product_num = :pid");
+
+        $stmt->bindParam(':pid', $pid, PDO::PARAM_STR);
+
+        $pid = $_GET['edit'];
+
+        $stmt->execute();
+
+        $editRow = $stmt->fetch(PDO::FETCH_ASSOC);
     }
- 
-  catch(PDOException $e)
-  {
-      echo "Error: " . $e->getMessage();
-  }
+
+    catch(PDOException $e)
+    {
+        echo "Error: " . $e->getMessage();
+    }
 }
-  
-  $conn = null;
-  if ($_SESSION['level']=="normal"&&(isset($_GET['update'])||isset($_GET['delete']))) {
-      echo "<font color='red'> Operation Failed: Insufficient Permission</font>";
-      $editRow="";
-  }else if ($_SESSION['level']=="normal"
+
+$conn = null;
+if ($_SESSION['level']=="normal"&&(isset($_GET['update'])||isset($_GET['delete']))) {
+    echo "<span style=\"color: red; \"> Operation Failed: Insufficient Permission</span>";
+    $editRow="";
+}else if ($_SESSION['level']=="normal"
     &&(isset($_POST['create'])||isset($_GET['edit']))){
     $newURL="products.php?error=true";
     header('Location: '.$newURL);
-  }else if($_SESSION['level']==""){
-     $newURL="index.php?level=none";
-     header('Location: '.$newURL);
-  }
+}else if($_SESSION['level']==""){
+    $newURL="index.php?level=none";
+    header('Location: '.$newURL);
+}
 ?>

@@ -1,8 +1,6 @@
 <?php
-
-$servername = "lrgs.ftsm.ukm.my";
-$username = "a197547";
-$password = "littleyellowcat";
+$servername = "127.0.0.1:3308";
+$username = "root";
+$password = "admin";
 $dbname = "a197547";
-
 ?>
