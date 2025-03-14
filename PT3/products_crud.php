@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(time()-$_SESSION["login_time_stamp"] >30000)
+if(time()-$_SESSION["login_time_stamp"] >300)
 {
     session_unset();
     session_destroy();

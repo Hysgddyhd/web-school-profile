@@ -1,9 +1,5 @@
 <?php
-
-
-session_start();
-var_dump($_SESSION);
-
+include_once "account_crud.php";
 if(isset($_GET['error'])){
     echo "<span style=\"color: red; \"> Operation Failed: Insufficient Permission</span><br>";
 }
@@ -14,7 +10,7 @@ if(isset($_GET['level'])){
         echo "<span style=\"color: red; \">Access blocked: Insufficient Permission</span><br>";
     }
 }
-include_once "account_crud.php";
+
 
 ?>
 <!DOCTYPE html>

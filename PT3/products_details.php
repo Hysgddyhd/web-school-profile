@@ -1,95 +1,5 @@
 <?php
-session_start();
-if($_SESSION['level']==""){
-    $newURL="index.php?level=none";
-    header('Location: '.$newURL);
-}
-include_once 'database.php';
-$conn = new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
-$conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-?>
-<?php
-if (isset($_GET['delete'])) {
-    $target_dir = "products/";
-    $target_file = $target_dir . $_GET['pid'].".png";
-
-    $url="products_details?pid=".$_GET['pid'];
-    header('Location: ',$url);
-}
-if (isset($_POST['pid'])){
-    echo "right source"."<br>";
-    $target_dir = "products/";
-    $target_file = $target_dir . $_GET['pid'].".png";
-    //delete image if delete flag is set
-
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-    // Check if image file is a actual image or fake image
-    if(isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-        if($check !== false) {
-            $uploadOk = 1;
-        } else {
-            echo "File is not an image.";
-            $uploadOk = 0;
-        }
-    }
-
-    // Check if file already exists
-    if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
-    }
-
-    // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-
-    // Allow certain file formats
-    if($imageFileType != "png" && $imageFileType != "gif" && $imageFileType != "jpg") {
-        echo "Sorry, only PNG & GIF & JPG files are allowed.";
-        $uploadOk = 0;
-    }
-
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-        echo "<br>"."Sorry, your file was not uploaded.";
-        // if everything is ok, try to upload file
-        die();
-    }
-
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-
-        try{
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            //update picture path
-            $stmt = $conn->prepare("UPDATE tbl_products_a197547_pt2 SET fld_product_image =:picture WHERE fld_product_num=:id");
-
-            // Bind the parameters
-            // $stmt->bindParam(':user', $name, PDO::PARAM_STR);
-
-            $stmt->bindParam(':id',$_POST['pid'],PDO::PARAM_STR);
-            $stmt->bindParam(':picture',$_POST['pid'],PDO::PARAM_STR);
-
-            $stmt->execute();
-            echo "succes change picture";
-
-        }
-        catch(PDOException $e)
-        {
-            echo "Error: " . $e->getMessage();
-        }
-
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-    }
-
-}
-
+include_once "products_details_crud.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,17 +11,30 @@ if (isset($_POST['pid'])){
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
         img{
-            max-width: 300px;
+            max-width: 200px;
             max-height: 200px;
         }
         tbody td{
-            min-height: 150px;
-            max-height: 250px;
+            height: 150px;
+        }
+        td#action{
+            width:150px;
+        }
+        tfoot td {
+            text-align: center;
+            font-family: "DejaVu Sans Mono", monospace;
+        }
+        a#selected{
+            background-color: lightslategrey;
+        }
+        h3{
+            text-align: center;
         }
     </style>
 </head>
 <body>
-<nav class="navbar nav-tabs">
+<!--navigation bar-->
+<nav class="navbar navbar-default">
     <ul class="nav nav-tabs">
         <li>
             <a href="index.php">Home</a>
@@ -121,7 +44,7 @@ if (isset($_POST['pid'])){
                 <span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li><a href="products.php">Add Product</a></li>
-                <li class="dropdown-item active"><a  href="products_details.php">Database</a></li>
+                <li class="active"><a href="products_details.php">Database</a></li>
             </ul>
         </li>
         <li class="dropdown">
@@ -135,88 +58,96 @@ if (isset($_POST['pid'])){
         <li><a href="orders.php">Order</a></li>
     </ul>
 </nav>
+<!--single product detail, if pid are delivered in get method-->
 <div class="container">
-</div>
-<table class="table table-bordered table-hover table-responsive">
-    <?php
-    if (isset($_GET['pid'])) {
-    try {
-        $stmt=$conn->prepare("SELECT*From tbl_products_a197547_pt2  where fld_product_num = :pid");
-        $stmt->bindParam(':pid',$pid,PDO::PARAM_STR);
-        $pid=$_GET['pid'];
-        $stmt->execute();
-        $readRow = $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-    catch(PDOException $e) {
-        echo "<p>".$e."</p>";
-    }
+    <span><h3><?php if(isset($_GET['pid'])){echo $_GET["pid"];} ?></h3></span>
+    <table class="table table-bordered table-hover table-responsive">
+        <?php
+        if (isset($_GET['pid'])) {
+        try {
+            $stmt=$conn->prepare("SELECT*From tbl_products_a197547_pt2  where fld_product_num = :pid");
+            $stmt->bindParam(':pid',$pid,PDO::PARAM_STR);
+            $pid=$_GET['pid'];
+            $stmt->execute();
+            $readRow = $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $e) {
+            echo "<p>".$e."</p>";
+        }
 
-    ?>
-    <thead>
-    <tr>
-        <td>Product ID:</td>
-        <td><?php echo $readRow['fld_product_num']; ?> </td>
-    </tr>
-    </thead><br>
-    <tr>
-        <td> Name: </td>
-        <td><?php echo $readRow['fld_product_name']; ?> <br></td>
-    </tr>
-    <tr>
-        <td>Brand:</td>
-        <td> <?php echo $readRow['fld_product_brand']; ?> <br></td>
-    </tr>
-    <tr>
-        <td>Price:(RM) </td>
-        <td> <?php echo $readRow['fld_product_price']; ?> <br></td>
-    </tr>
-    <tr>
-        <td> Room Position:</td>
-        <td><?php foreach (explode(';',$readRow['fld_product_position'],-1) as $value) {
-                echo $value.', ';
-            }; ?> <br></td>
-    </tr>
-    <tr>
-        <td>Material:</td>
-        <td><?php echo $readRow['fld_product_material']; ?> <br></td>
-    </tr>
-    <tr>
-        <td> Specialty:</td>
-        <td><?php echo '<p>';foreach (explode(';',$readRow['fld_product_specialty'],-1) as $value) {
-                echo $value." ";
-            }; echo ".</p>";?></td>
-    </tr>
-    <tr>
-        <td>Quantity:</td>
-        <td><?php
-            echo $readRow["fld_product_quantity"]."<br>";
-            ?><br></td>
-    </tr>
-    <tr>
-        <td>Image</td>
-        <td><img src ="products/<?php if (strcmp($readRow["fld_product_image"], "")!=0) {
-                echo $readRow['fld_product_image'].'.png';
-            } else {
-                echo "../../img/noPhoto.png";
-            }
-            ?>" width="50%" height="50%" alt=""></td>
-    </tr>
-    <tfoot>
-    <tr>
-        <td><a role="button" class="btn btn-default" href="products_details.php">Database</a></td>
-        <td>
-            <form action="products_details.php?pid=<?php echo $_GET['pid'];  ?>" method="post"  enctype="multipart/form-data">
-                <input class="btn btn-default" type='file' name='fileToUpload' id='fileToUpload' required>
-                <input type="hidden" name="pid" value="<?php echo $_GET['pid']; ?>">
-                <input class="btn btn-success" title="upload image" type="submit" name="upload" value="upload">
-                <button class="btn btn-danger" title="Delete image uploaded" ><a href="products_details.php?pid=<?php echo $_GET['pid']; ?>&delete=<?php if (isset($_GET['pid'])) {
-                        echo "true";
-                    } ?>">Delete</a></button>
-            </form>
-        </td>
-    </tr>
-    </tfoot>
-</table>
+        ?>
+        <thead>
+        <tr>
+            <td>Product ID:</td>
+            <td><?php echo $readRow['fld_product_num']; ?> </td>
+        </tr>
+        </thead><br>
+        <tr>
+            <td> Name: </td>
+            <td><?php echo $readRow['fld_product_name']; ?> <br></td>
+        </tr>
+        <tr>
+            <td>Brand:</td>
+            <td> <?php echo $readRow['fld_product_brand']; ?> <br></td>
+        </tr>
+        <tr>
+            <td>Price:(RM) </td>
+            <td> <?php echo $readRow['fld_product_price']; ?> <br></td>
+        </tr>
+        <tr>
+            <td> Room Position:</td>
+            <td><?php foreach (explode(';',$readRow['fld_product_position'],-1) as $value) {
+                    echo $value.', ';
+                }; ?> <br></td>
+        </tr>
+        <tr>
+            <td>Material:</td>
+            <td><?php echo $readRow['fld_product_material']; ?> <br></td>
+        </tr>
+        <tr>
+            <td> Specialty:</td>
+            <td><?php echo '<p>';foreach (explode(';',$readRow['fld_product_specialty'],-1) as $value) {
+                    echo $value." ";
+                }; echo ".</p>";?></td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td><?php
+                echo $readRow["fld_product_quantity"]."<br>";
+                ?><br></td>
+        </tr>
+        <tr>
+            <td id="image">Image</td>
+            <td><img src ="products/<?php if (strcmp($readRow["fld_product_image"], "")!=0) {
+                    echo $readRow['fld_product_image'].'.png';
+                } else {
+                    echo "../../img/noPhoto.png";
+                }
+                ?>"  alt="product image"></td>
+        </tr>
+        <tr>
+            <td>Edit Image</td>
+            <td>
+                <form action="products_details.php?pid=<?php echo $_GET['pid'];  ?>" method="post"  enctype="multipart/form-data">
+                    <div>
+                        <input class="btn btn-default" type='file' name='fileToUpload' id='fileToUpload' required>
+                        <input type="hidden" name="pid" value="<?php echo $_GET['pid']; ?>">
+                    </div><br>
+                    <div>
+                        <input class="btn btn-warning btn-sm" title="upload image" type="submit" name="editImage" value="<?php if($readRow['fld_product_image']!==""){echo "Modify";}else{echo("Add"); } ?>">
+                        <button class="btn btn-danger btn-sm" title="Delete uploaded image" id="delete" onclick="deleteImage()">Delete</button>
+                    </div>
+                </form>
+            </td>
+        </tr>
+        <tfoot>
+        <tr>
+            <td colspan="2"><a href="products_details.php">Return to Database</a></td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<!--lamp database overview, if pid are not delivered-->
 <?php
 } else{ ?>
     <div class="container">
@@ -232,7 +163,7 @@ if (isset($_POST['pid'])){
             <td>Price(RM)</td>
             <td>Place Position</td>
             <td>Image</td>
-            <td></td>
+            <td>Action</td>
         </tr>
         </thead>
         <tbody>
@@ -271,15 +202,16 @@ if (isset($_POST['pid'])){
                 if($readRow['fld_product_image']!==""){
                     echo '<img src="products/'.$readRow['fld_product_image'].'.png" alt="Product Image">';
                 }else{
-                    echo '<span class="glyphicon glyphicon-picture">';
+                    echo '<span class="glyphicon glyphicon-picture"><del>Img</del></span></del>';
                 }
-                ?>
+                ?><br>
+                <a type="button" class="btn btn-link btn-sm" href="products_details.php?pid=<?php echo $readRow['fld_product_num']; ?>#image"><?php if($readRow['fld_product_image']!==""){echo "Modify";}else{echo("Add"); } ?></a>
             </td>
-            <td>
+            <td id="action">
                 <div class="btn-group btn-group-xs ">
                     <a type="button" class="btn btn-info btn-sm" href="products_details.php?pid=<?php echo $readRow['fld_product_num']; ?>">Details</a>
                     <a type="button" class="btn btn-default btn-sm" href="products.php?edit=<?php echo $readRow['fld_product_num']; ?>">Edit</a>
-                    <a type="button" class="btn btn-warning btn-sm" href="products.php?delete=<?php echo $readRow['fld_product_num']; ?>" onclick="return confirm('Are you sure to delete?');">Delete</a>
+                    <a type="button" class="btn btn-danger btn-sm" href="products.php?delete=<?php echo $readRow['fld_product_num']; ?>" onclick="return confirm('Are you sure to delete?');">Delete</a>
                 </div>
             </td>
 
@@ -290,7 +222,9 @@ if (isset($_POST['pid'])){
         </tr>
         </tbody>
         <tfoot>
-
+        <tr>
+            <td colspan="7">Decent Lamp Store</td>
+        </tr>
         </tfoot>
     </table>
     <div class="justify-content-center btn-group">
@@ -298,14 +232,21 @@ if (isset($_POST['pid'])){
         <?php
         for ($i=1; $i <=$maxPage; $i++) {
             ?>
-            <a role="button" class="btn btn-default" href="products_details.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+            <a role="button" class="btn btn-default" href="products_details.php?page=<?php echo $i; ?>" <?php if($page==$i){ echo 'id="selected"';}?>><?php echo $i; ?></a>
         <?php } ?>
         <a role="button" class="btn btn-default <?php if($page==$maxPage) echo "disabled"; ?>" href="products_details.php?page=<?php echo $page+1; ?>">»</a>
     </div>
 <?php } ?>
 
-
 </body>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script>
+    function deleteImage(){
+        if(confirm('Are you sure to delete?')===true){
+            console.log("products_details.php?pid=<?php echo $_GET['pid']; ?>&delete=true");
+            window.location.href="products_details.php?pid=<?php echo $_GET['pid']; ?>&delete=true";
+        }
+    }
+</script>
 </html>

@@ -7,7 +7,7 @@ $conn = new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
 $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 <body>
 <nav class="navbar navbar-default">
     <ul class="nav nav-tabs">
-        <li >
+        <li>
             <a href="index.php">Home</a>
         </li>
         <li class="dropdown active">
@@ -40,8 +40,8 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         <li><a href="orders.php">Order</a></li>
     </ul>
 </nav>
+<!--form body-->
 <div class="container">
-    <!--form body-->
     <div class="form-group">
         <div class="row">
             <div class="col-sm-8 col-sm-offset-4">
@@ -229,11 +229,11 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             <!--image of products -->
             <td>
                 <?php
-                    if($readRow['fld_product_image']!==""){
-                        echo $readRow['fld_product_image'];
-                    }else{
-                        echo '<span class="glyphicon glyphicon-picture">';
-                    }
+                if($readRow['fld_product_image']!==""){
+                    echo $readRow['fld_product_image'];
+                }else{
+                    echo '<span class="glyphicon glyphicon-picture">';
+                }
                 ?>
             </td>
             <?php
